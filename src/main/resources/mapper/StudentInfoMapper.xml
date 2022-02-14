@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.graduation.chen.stuems.dao.StudentInfoMapper">
+    <resultMap id="BaseResultMap" type="com.graduation.chen.stuems.entity.StudentInfo">
+        <id column="student_id" jdbcType="VARCHAR" property="studentId"/>
+        <result column="join_time" jdbcType="DATE" property="joinTime"/>
+        <result column="join_type" jdbcType="VARCHAR" property="joinType"/>
+        <result column="education" jdbcType="VARCHAR" property="education"/>
+        <result column="college" jdbcType="VARCHAR" property="college"/>
+        <result column="major" jdbcType="VARCHAR" property="major"/>
+        <result column="department" jdbcType="VARCHAR" property="department"/>
+        <result column="classes" jdbcType="VARCHAR" property="classes"/>
+        <result column="is_study" jdbcType="VARCHAR" property="isStudy"/>
+    </resultMap>
+    <!--查询所有学籍信息根据学号-->
+    <select id="selectAllByStudentIdInStudent" parameterType="java.lang.String" resultMap="BaseResultMap">
+        select *
+        from student_info
+        where student_id = #{studentId,jdbcType=VARCHAR}
+    </select>
+</mapper>

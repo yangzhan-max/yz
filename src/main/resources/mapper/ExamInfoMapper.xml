@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.graduation.chen.stuems.dao.ExamInfoMapper">
+    <resultMap id="BaseResultMap" type="com.graduation.chen.stuems.entity.ExamInfo">
+        <id column="exam_id" jdbcType="VARCHAR" property="examId"/>
+        <result column="student_id" jdbcType="VARCHAR" property="studentId"/>
+        <result column="course_id" jdbcType="VARCHAR" property="courseId"/>
+        <result column="exam_time" jdbcType="DATE" property="examTime"/>
+        <result column="exam_place" jdbcType="VARCHAR" property="examPlace"/>
+        <result column="exam_section" jdbcType="INTEGER" property="examSection"/>
+        <result column="exam_Invigilator" jdbcType="VARCHAR" property="examInvigilator"/>
+        <result column="exam_type" jdbcType="VARCHAR" property="examType"/>
+    </resultMap>
+
+    <resultMap id="ExamResultViewMap" type="com.graduation.chen.stuems.model.vo.ExamInfoVO">
+        <id column="exam_id" jdbcType="VARCHAR" property="examId"/>
+        <result column="exam_time" jdbcType="DATE" property="examTime"/>
+        <result column="exam_place" jdbcType="VARCHAR" property="examPlace"/>
+        <result column="exam_section" jdbcType="INTEGER" property="examSection"/>
+        <result column="exam_Invigilator" jdbcType="VARCHAR" property="examInvigilator"/>
+        <result column="exam_type" jdbcType="VARCHAR" property="examType"/>
+        <result column="course_name" jdbcType="VARCHAR" property="courseName"/>
+        <result column="course_type" jdbcType="VARCHAR" property="courseType"/>
+    </resultMap>
+    <sql id="Base_Column_List">
+        exam_id, student_id, course_id, exam_time, exam_place, exam_section, exam_Invigilator,
+    exam_type
+    </sql>
+
+    <select id="listAllByStudentId" parameterType="java.lang.String" resultMap="ExamResultViewMap">
+        select exam_id,
+               course_name,
+               course_type,
+               exam_time,
+               exam_place,
+               exam_section,
+               exam_Invigilator,
+               exam_type
+        from view_exam
+        where student_id = #{studentId,jdbcType=VARCHAR}
+    </select>
+
+</mapper>

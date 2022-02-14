@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>教学项目报名</title>
+    <!-- Standard -->
+    <link rel="shortcut icon" href="/logo/logo_title.png">
+    <!-- Styles -->
+    <link href="assets/fontAwesome/css/fontawesome-all.min.css" rel="stylesheet">
+    <link href="assets/css/lib/themify-icons.css" rel="stylesheet">
+    <link href="assets/css/lib/mmc-chat.css" rel="stylesheet"/>
+    <link href="assets/css/lib/sidebar.css" rel="stylesheet">
+    <link href="assets/css/lib/bootstrap.min.css" rel="stylesheet">
+    <link href="assets/css/lib/nixon.css" rel="stylesheet">
+    <link href="assets/lib/lobipanel/css/lobipanel.min.css" rel="stylesheet">
+    <link href="assets/css/style.css" rel="stylesheet">
+</head>
+<body>
+<!--left-->
+<div class="sidebar sidebar-hide-to-small sidebar-shrink sidebar-gestures">
+    <div class="nano">
+        <div class="nano-content">
+            <ul>
+                <li>
+                    <a href="index.html"><i class="ti-user"></i> 个人主页</a></li>
+                <li class="active open">
+                    <a class="sidebar-sub-toggle"><i class="ti-clipboard"></i> 报名申请 <span
+                            class="sidebar-collapse-icon ti-angle-down"></span></a>
+                    <ul>
+                        <li><a href="sign-levelExam.html">考级项目报名</a></li>
+                        <li class="active"><a href="sign-teaching.html">教学项目报名</a></li>
+                        <li><a href="sign-makeUp.html">补考确认</a></li>
+                        <li><a href="sign-finalMakeUp.html">毕业补考报名</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a class="sidebar-sub-toggle"><i class="ti-write"></i> 信息维护<span
+                            class="sidebar-collapse-icon ti-angle-down"></span></a>
+                    <ul>
+                        <li><a href="preserve-personalInfo.html">学生信息维护</a></li>
+                        <li><a href="preserve-cultivate.html">个人培养方案</a></li>
+                        <li><a href="preserve-credit.html">创新创业学分确认</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a class="sidebar-sub-toggle"><i class="ti-book"></i> 课程相关 <span
+                            class="sidebar-collapse-icon ti-angle-down"></span></a>
+                    <ul>
+                        <li><a href="course-query.html">学生课表查询</a></li>
+                        <li><a href="course-choose.html">自主选课</a></li>
+                        <li><a href="course-exam.html">考试安排</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a class="sidebar-sub-toggle"><i class="ti-search"></i> 信息查询<span
+                            class="sidebar-collapse-icon ti-angle-down"></span></a>
+                    <ul>
+                        <li><a href="info-warning.html">学籍预警查询</a></li>
+                        <li><a href="info-graduationAudit.html">毕业审核查询</a></li>
+
+                        <li><a href="info-score.html">学生成绩查询</a></li>
+
+
+                    </ul>
+                </li>
+                <li><a target="_blank" href="evaluate.html"><i class="ti-comment-alt"></i> 教学评价</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+<!-- header -->
+<div class="header">
+    <div class="pull-left">
+        <div class="logo login-logo">
+            <a href="index.html">
+                    <span class="label label-primary">
+                     教务管理系统
+                    </span>
+            </a>
+        </div>
+        <div class="hamburger sidebar-toggle">
+            <span class="ti-menu"></span>
+        </div>
+    </div>
+    <div class="pull-right p-r-15">
+        <ul>
+            <li class="header-icon dib"><img class="avatar-img"/> <span
+                    class="user-avatar"><i class="ti-angle-down f-s-10"></i></span>
+                <div class="drop-down dropdown-profile">
+                    <div class="dropdown-content-body">
+                        <ul>
+                            <li><a href="reset.html"><i class="ti-lock"></i> <span>修改密码</span></a></li>
+                            <li><a href="new-email.html"><i class="ti-email"></i> <span>修改邮箱</span></a></li>
+                            <li><a href="javascript:void (0)" onclick="exit()"><i class="ti-power-off"></i>
+                                <span>安全退出</span></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>
+<!--content-->
+<div class="content-wrap">
+    <div class="main">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-8 p-0">
+                    <div class="page-header">
+                        <div class="page-title">
+                            <h1><strong>教学项目报名</strong></h1>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 p-0">
+                    <div class="page-header">
+                        <div class="page-title">
+                            <ol class="breadcrumb text-right">
+                                <li><a>报名申请</a></li>
+                                <li class="active">教学项目报名</li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="main-content">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="card alert">
+                            <div class="card-header" id="chongxiu">
+                                <h4>课程重修</h4>
+                                <p class="text-muted m-b-15">已报名信息记录<span>0</span>条</p>
+                            </div>
+                            <div class="card-body"
+                                 style="border:1px solid #ccc;margin-bottom: 20px;padding: 10px"></div>
+                        </div>
+                    </div>
+                    <div class="col-lg-12">
+                        <div class="card alert">
+                            <div class="card-header" id="huanxiu">
+                                <h4>课程缓修</h4>
+                                <p class="text-muted m-b-15">已报名信息记录<span>0</span>条</p>
+                            </div>
+                            <div class="card-body"
+                                 style="border:1px solid #ccc;margin-bottom: 20px;padding: 10px"></div>
+                        </div>
+                    </div>
+                    <div class="col-lg-12">
+                        <div class="card alert" id="mianxiu">
+                            <div class="card-header">
+                                <h4>课程免修</h4>
+                                <p class="text-muted m-b-15">已报名信息记录
+                                    <span>0</span>条
+                                </p>
+                            </div>
+                            <div class="card-body"
+                                 style="border:1px solid #ccc;margin-bottom: 20px;padding: 10px"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+<script src="assets/js/lib/jquery.min.js"></script>
+<script src="assets/js/lib/jquery.nanoscroller.min.js"></script>
+<script src="assets/js/lib/sidebar.js"></script>
+<script src="assets/js/lib/bootstrap.min.js"></script>
+<script src="assets/js/lib/mmc-common.js"></script>
+<script src="assets/js/lib/datamap/d3.min.js"></script>
+<script src="assets/js/lib/datamap/topojson.js"></script>
+<script src="assets/lib/lobipanel/js/lobipanel.js"></script>
+<script src="assets/js/scripts.js"></script>
+
+<script src="js/public.js"></script>
+<script>
+    $(document).ready(function () {
+        $.ajax({
+            url: '/view/show-teach-program',
+            type: 'get',
+            contentType: 'application/json;charset=UTF-8',
+            success: function (result) {
+                let data = result.data;
+
+                function pro(arg) {
+                    if (arg === "课程重修") {
+                        return 0;
+                    } else if (arg === "课程缓修") {
+                        return 1;
+                    } else if (arg === "课程免修") {
+                        return 2;
+                    }
+                }
+
+                for (let i = 0; i < data.length; i++) {
+
+                    data[i].accept = data[i].accept ? "已受理" : "未受理";
+                    let innerHtml = "<p class=\"text-muted\" style=\"color:#00838F\">\n" +
+                        "<span>" + (i + 1) + "</span>.\n" +
+                        "<span>" + data[i].courseName + "</span>\n" +
+                        "<span style=\"margin-left: 30px;\">报名时间：" + data[i].signTime + "</span>\n" +
+                        "<span style=\"margin-left: 30px;\">审核状态：" + data[i].accept + "</span>\n" +
+                        "</p>";
+                    //
+                    $('.col-lg-12').eq(pro(data[i].programType)).find(".card-body").eq(0).append(innerHtml);
+                    //
+                    let num = $('.col-lg-12').eq(pro(data[i].programType)).find(".card-body").children("p").length;
+                    //
+                    $('.col-lg-12').eq(pro(data[i].programType)).find(".card-header").children("p").children("span").eq(0).html(num);
+                }
+            }
+        });
+    });
+</script>
+</body>
+</html>

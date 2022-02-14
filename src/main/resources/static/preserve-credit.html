@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>创新创业学分确认</title>
+    <!-- Standard -->
+    <link rel="shortcut icon" href="/logo/logo_title.png">
+    <!-- Styles -->
+    <link href="assets/fontAwesome/css/fontawesome-all.min.css" rel="stylesheet">
+    <link href="assets/css/lib/themify-icons.css" rel="stylesheet">
+    <link href="assets/css/lib/mmc-chat.css" rel="stylesheet"/>
+    <link href="assets/css/lib/sidebar.css" rel="stylesheet">
+    <link href="assets/css/lib/bootstrap.min.css" rel="stylesheet">
+    <link href="assets/css/lib/nixon.css" rel="stylesheet">
+    <link href="assets/lib/lobipanel/css/lobipanel.min.css" rel="stylesheet">
+    <link href="assets/css/style.css" rel="stylesheet">
+</head>
+<body>
+<!--left-->
+<div class="sidebar sidebar-hide-to-small sidebar-shrink sidebar-gestures">
+    <div class="nano">
+        <div class="nano-content">
+            <ul>
+                <li>
+                    <a href="index.html"><i class="ti-user"></i> 个人主页</a></li>
+                <li>
+                    <a class="sidebar-sub-toggle"><i class="ti-clipboard"></i> 报名申请 <span
+                            class="sidebar-collapse-icon ti-angle-down"></span></a>
+                    <ul>
+                        <li><a href="sign-levelExam.html">考级项目报名</a></li>
+                        <li><a href="sign-teaching.html">教学项目报名</a></li>
+                        <li><a href="sign-makeUp.html">补考确认</a></li>
+                        <li><a href="sign-finalMakeUp.html">毕业补考报名</a></li>
+                    </ul>
+                </li>
+                <li class="active open">
+                    <a class="sidebar-sub-toggle"><i class="ti-write"></i> 信息维护<span
+                            class="sidebar-collapse-icon ti-angle-down"></span></a>
+                    <ul>
+                        <li><a href="preserve-personalInfo.html">学生信息维护</a></li>
+                        <li><a href="preserve-cultivate.html">个人培养方案</a></li>
+                        <li class="active"><a href="preserve-credit.html">创新创业学分确认</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a class="sidebar-sub-toggle"><i class="ti-book"></i> 课程相关 <span
+                            class="sidebar-collapse-icon ti-angle-down"></span></a>
+                    <ul>
+                        <li><a href="course-query.html">学生课表查询</a></li>
+                        <li><a href="course-choose.html">自主选课</a></li>
+                        <li><a href="course-exam.html">考试安排</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a class="sidebar-sub-toggle"><i class="ti-search"></i> 信息查询<span
+                            class="sidebar-collapse-icon ti-angle-down"></span></a>
+                    <ul>
+                        <li><a href="info-warning.html">学籍预警查询</a></li>
+                        <li><a href="info-graduationAudit.html">毕业审核查询</a></li>
+
+                        <li><a href="info-score.html">学生成绩查询</a></li>
+
+
+                    </ul>
+                </li>
+                <li><a target="_blank" href="evaluate.html"><i class="ti-comment-alt"></i> 教学评价</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+<!-- header -->
+<div class="header">
+    <div class="pull-left">
+        <div class="logo login-logo">
+            <a href="index.html">
+                    <span class="label label-primary">
+                     教务管理系统
+                    </span>
+            </a>
+        </div>
+        <div class="hamburger sidebar-toggle">
+            <span class="ti-menu"></span>
+        </div>
+    </div>
+    <div class="pull-right p-r-15">
+        <ul>
+            <li class="header-icon dib">
+                <img class="avatar-img"/> <span class="user-avatar">
+                    <i class="ti-angle-down f-s-10"></i></span>
+                <div class="drop-down dropdown-profile">
+                    <div class="dropdown-content-body">
+                        <ul>
+                            <li><a href="reset.html"><i class="ti-lock"></i> <span>修改密码</span></a></li>
+                            <li><a href="new-email.html"><i class="ti-email"></i> <span>修改邮箱</span></a></li>
+                            <li><a href="javascript:void (0)" onclick="exit()"><i class="ti-power-off"></i>
+                                <span>安全退出</span></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>
+<!--content-->
+<div class="content-wrap">
+    <div class="main">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-8 p-0">
+                    <div class="page-header">
+                        <div class="page-title">
+                            <h1><strong>职业学分确认</strong></h1>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 p-0">
+                    <div class="page-header">
+                        <div class="page-title">
+                            <ol class="breadcrumb text-right">
+                                <li><a>信息维护</a></li>
+                                <li class="active">创新创业学分确认</li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="main-content">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="card alert">
+                            <div class="card-header">
+                                <h4>职业能力学分确认</h4>
+                            </div>
+                            <div class="card-body">
+                                <table class="table table-responsive table-striped ">
+                                    <thead>
+                                    <tr>
+                                        <th width="10%">审核状态</th>
+                                        <th width="10%">学分类别</th>
+                                        <th width="10%">项目名称</th>
+                                        <th width="30%">申报理由</th>
+                                        <th width="10%">证书截图</th>
+                                        <th width="10%">认证日期</th>
+                                        <th width="10%">审核日期</th>
+                                        <th width="10%">有效分值</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody id="tbody-vocational"></tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="card alert">
+                            <div class="card-header">
+                                <h4>创业学分确认</h4>
+                            </div>
+                            <div class="card-body">
+                                <table class="table table-responsive table-striped ">
+                                    <thead>
+                                    <tr>
+                                        <th width="10%">审核状态</th>
+                                        <th width="10%">学分类别</th>
+                                        <th width="10%">项目名称</th>
+                                        <th width="30%">申报理由</th>
+                                        <th width="10%">证书截图</th>
+                                        <th width="10%">认证日期</th>
+                                        <th width="10%">审核日期</th>
+                                        <th width="10%">有效分值</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody id="tbody-innovate"></tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="card alert">
+                            <div class="card-header">
+                                <h4>创新创业学分认证</h4>
+                            </div>
+                            <div class="card-body">
+                                <div class="form-group col-lg-4">
+                                    <label class="control-label">学分类型</label>
+                                    <select id="module" class="form-control input-default ">
+                                        <option>请选择</option>
+                                    </select>
+                                </div>
+                                <div class="form-group col-lg-4">
+                                    <label class="control-label">类别</label>
+                                    <select id="category" class="form-control input-default ">
+                                        <option>请选择</option>
+                                    </select>
+                                </div>
+                                <div class="form-group col-lg-4">
+                                    <label class="control-label">具体内容</label>
+                                    <select id="specific" class="form-control input-default ">
+                                        <option>请选择</option>
+                                    </select>
+                                </div>
+
+                                <div class="form-group col-lg-12">
+                                    <label class="control-label">申报理由</label>
+                                    <textarea id="textArea" class="form-control" rows="10" cols="10"></textarea>
+                                </div>
+
+                                <div class="form-group col-lg-12">
+                                    <label class="control-label">图片上传</label>
+                                    <input id="file" type="file">
+                                </div>
+
+                                <div>
+                                    <button id="submit" class="btn btn-primary btn-lg btn-block m-b-10"
+                                            style="width: 250px">开始认证
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+<script src="assets/js/lib/jquery.min.js"></script>
+<script src="assets/js/lib/jquery.nanoscroller.min.js"></script>
+<script src="assets/js/lib/sidebar.js"></script>
+<script src="assets/js/lib/bootstrap.min.js"></script>
+<script src="assets/js/lib/mmc-common.js"></script>
+<script src="assets/js/lib/datamap/d3.min.js"></script>
+<script src="assets/js/lib/datamap/topojson.js"></script>
+<script src="assets/lib/lobipanel/js/lobipanel.js"></script>
+<script src="assets/js/scripts.js"></script>
+
+<script src="js/public.js"></script>
+<script>
+    //三级联动
+    $(function linkage() {
+        let iNum1;
+        let iNum2;
+        //创新创业学分模块
+        let module = ['职业能力学分', '创业能力学分'];
+        //创新创业学分类别
+        let category = [['职业课程', '能力证书', '国家资格证书'], ['创业课程', '创新实践', '创业实践', '科研实践']];
+        //
+        let specific = [
+            [['职业能力系列课程'],
+                ['职场英语一级', '大学英语四六级', '计算机等级考试(非计算机专业)', '普通话一、二级', '其他能力证书'],
+                ['机动车资格证', '教师资格证', '全国计算机软件专业技术资格考试证书(中级)', '人力资源管理证书', '会计从业资格证书', '其他职业资格证书与']],
+            [['创业能力系列课程'],
+                ['学科竞赛国家级、省级、市级、校级奖项', '大学生创新计划国家级、省级、市级、校级奖项', '文体活动国家级、省级、市级、校级奖项'],
+                ['创业竞赛国家级、省级、市级、校级奖项', '大学生创业项目国家级、省级、市级、校级奖项', '创办企业取得营业执照', '网上商店取得1-2钻'],
+                ['学生科研立项、结题', '学术期刊发表论文并被省级学术会议收录', '发明专利或计算机软件著作权']
+            ],
+        ];
+        $(function () {
+            //1.给选择框1赋值
+            for (let i = 0; i < module.length; i++) {
+                $('#module').append('<option>' + module[i] + '</option>');
+            }
+            ;
+            //2.选择框1改变事件
+            $('#module').change(function () {
+                //去掉选择框2和3里的选项
+                $('#category').children().not(':eq(0)').remove();
+                $('#specific').children().not(':eq(0)').remove();
+                //获取该选项的索引
+                iNum1 = $(this).children('option:selected').index();
+                //创建新的数组，用来放入选择框1对应的选择框2里的选项
+                let aCategory = category[iNum1 - 1];
+                //遍历赋值
+                for (let j = 0; j < aCategory.length; j++) {
+                    $('#category').append('<option>' + aCategory[j] + '</option>');
+                }
+            });
+            //3.选择框2改变事件
+            $('#category').change(function () {
+                //去掉选择框3里的选项
+                $('#specific').children().not(':eq(0)').remove();
+                iNum2 = $(this).children('option:selected').index();
+                let aSpecific = specific[iNum1 - 1][iNum2 - 1];
+                for (let k = 0; k < aSpecific.length; k++) {
+                    $('#specific').append('<option>' + aSpecific[k] + '</option>');
+                }
+            })
+        })
+    });
+    //学分信息渲染
+    $(function () {
+        let array1 = new Array();
+        let array2 = new Array();
+
+        $.ajax({
+            url: '/preserve/show-inCredit',
+            type: "get",
+            success: function (res) {
+                let data = res.data;
+                for (let i = 0; i < res.data.length; i++) {
+                    //未审核判断
+                    if (data[i].auditTime === null) {
+                        data[i].auditTime = '等待审核';
+                    }
+                    //渲染开始
+                    let html = '<tr>\n' +
+                        '<td><span id="badge' + (i + 1) + '"class="badge">' + data[i].auditStatue + '</span></td>\n' +
+                        '<td>' + data[i].inCreditType + '</td>\n' +
+                        '<td>' + data[i].inCreditName + '</td>\n' +
+                        '<td>' + data[i].inCreditReason + '</td>\n' +
+                        '<td><button id="look" class="btn btn-info btn-outline btn-sm m-b-10" ' +
+                        'onclick=\'window.open("/upload/creditpic/' + data[i].inCreditProve + '")\'>' +
+                        '<a href="/upload/' + data[i].inCreditProve +
+                        '"target="_blank">点击查看</a></button></td>' +
+                        '<td>' + data[i].requestTime + '</td>\n' +
+                        '<td>' + data[i].auditTime + '</td>' +
+                        '<td>' + data[i].inCreditScore + '</td>\n' +
+                        '</tr>';
+
+                    //判断学分类型
+                    if (data[i].inCreditType === '创业能力学分') {
+                        $('#tbody-innovate').append(html)
+                    } else if (data[i].inCreditType === '职业能力学分') {
+                        $('#tbody-vocational').append(html)
+                    }
+                    //改变按钮样式
+                    switch (data[i].auditStatue) {
+                        case '待审核':
+                            $('#badge' + (i + 1)).attr('class', 'badge badge-primary');
+                            break;
+                        case '已通过':
+                            $('#badge' + (i + 1)).attr('class', 'badge badge-success');
+                            break;
+                        case '未通过':
+                            $('#badge' + (i + 1)).attr('class', 'badge badge-danger');
+                            break;
+                        default:
+                            break;
+                    }
+
+                }
+            }
+        })
+    });
+    //表单提交
+    $('#submit').click(function () {
+
+        //获取输入框中的账号及密码
+        let module = $('#module option:selected').val();
+        let category = $('#category option:selected').val();
+        let specific = $('#specific option:selected').val();
+        let textArea = $('#textArea').val();
+        let file = $('#file').val();
+
+        if (module === '请选择') {
+            layer.msg('请选择学分类型');
+            return;
+        }
+        if (category === '请选择') {
+            layer.msg('请选择项目类别');
+            return;
+        }
+        if (specific === '请选择') {
+            layer.msg('请选择具体项目内容');
+            return;
+        }
+        if (textArea.length === 0) {
+            layer.msg('请填写申报理由');
+            return;
+        }
+        if (file === "" || file === null) {
+            layer.msg('请选择要上传的图片');
+            return;
+        }
+        if (file.lastIndexOf('.') == -1) {    //如果不存在"."
+            layer.alert("路径不正确!");
+            return;
+        }
+        let AllImgExt = ".jpg|.jpeg|.gif|.bmp|.png|";
+        let extName = file.substring(file.lastIndexOf(".")).toLowerCase();//（把路径中的所有字母全部转换为小写）
+        if (AllImgExt.indexOf(extName + "|") == -1) {
+            let errMsg = "该文件类型不允许上传。请上传 " + AllImgExt + " 类型的文件，当前文件类型为" + extName;
+            layer.alert(errMsg);
+            return;
+        }
+
+        let formData = new FormData();
+
+        formData.set("type", $('#module').val());
+        // formData.set("category", $('#category').val());
+        formData.set("name", $('#specific').val());
+        formData.set("reason", $('#textArea').val());
+        formData.set("file", $('#file')[0].files[0]);
+        // formData.set("fileName", $('#file').val());
+
+        $.ajax({
+            url: '/preserve/upload-credit',
+            type: "POST",
+            data: formData,
+            dataType: "JSON",
+            async: true,
+            //要想用jquery的ajax来提交FormData数据,
+            //则必须要把这两项设为false
+            processData: false,
+            contentType: false,
+            //这里是防表单重复提交,可以忽略
+            beforeSend: function (xhr) {
+                $("#submit").attr("disabled", true);
+            },
+            complete: function (xhr, status) {
+                $("#submit").attr("disabled", false);
+            }, success: function (res) {
+                if (res.data === 1) {
+                    alert("提交成功！")
+                }
+                window.location.reload();
+            }
+        })
+    });
+
+
+</script>
+</body>
+</html>

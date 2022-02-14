@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.graduation.chen.stuems.dao.SelectCourseMapper">
+    <resultMap id="BaseResultMap" type="com.graduation.chen.stuems.entity.SelectCourse">
+        <id column="id" jdbcType="INTEGER" property="id"/>
+        <result column="student_id" jdbcType="VARCHAR" property="studentId"/>
+        <result column="course_id" jdbcType="VARCHAR" property="courseId"/>
+        <result column="course_term" jdbcType="INTEGER" property="courseTerm"/>
+        <result column="course_year" jdbcType="VARCHAR" property="courseYear"/>
+        <result column="course_score" jdbcType="INTEGER" property="courseScore"/>
+        <result column="course_score_second" jdbcType="INTEGER" property="courseScoreSecond"/>
+        <result column="course_score_final" jdbcType="INTEGER" property="courseScoreFinal"/>
+        <result column="is_evaluate" jdbcType="BIT" property="isEvaluate"/>
+        <result column="evaluate_score" jdbcType="INTEGER" property="evaluateScore"/>
+    </resultMap>
+
+    <!--查询课程相关-->
+    <resultMap id="SelectCourseResultMap" type="com.graduation.chen.stuems.model.dto.SelectCourseDTO">
+        <id column="id" jdbcType="INTEGER" property="id"/>
+        <result column="student_id" jdbcType="VARCHAR" property="studentId"/>
+        <result column="course_id" jdbcType="VARCHAR" property="courseId"/>
+        <result column="course_name" jdbcType="VARCHAR" property="courseName"/>
+        <result column="course_place" jdbcType="VARCHAR" property="coursePlace"/>
+        <result column="course_teacher" jdbcType="VARCHAR" property="courseTeacher"/>
+        <result column="course_week" jdbcType="INTEGER" property="courseWeek"/>
+        <result column="course_section" jdbcType="INTEGER" property="courseSection"/>
+        <result column="course_cycle" jdbcType="VARCHAR" property="courseCycle"/>
+        <result column="course_credit" jdbcType="REAL" property="courseCredit"/>
+        <result column="course_type" jdbcType="VARCHAR" property="courseType"/>
+        <result column="course_term" jdbcType="INTEGER" property="courseTerm"/>
+        <result column="course_year" jdbcType="VARCHAR" property="courseYear"/>
+        <result column="course_score" jdbcType="INTEGER" property="courseScore"/>
+        <result column="course_score_second" jdbcType="INTEGER" property="courseScoreSecond"/>
+        <result column="course_score_final" jdbcType="INTEGER" property="courseScoreFinal"/>
+        <result column="course_belong" jdbcType="VARCHAR" property="courseBelong"/>
+    </resultMap>
+
+    <select id="listAllByQuery" parameterType="com.graduation.chen.stuems.model.query.SchoolTermQuery"
+            resultMap="SelectCourseResultMap">
+    select *
+    from view_select_course
+    where  view_select_course.student_id = #{schoolTermQuery.studentId,jdbcType=VARCHAR} and
+           view_select_course.course_term= #{schoolTermQuery.courseTerm,jdbcType=INTEGER} and
+           view_select_course.course_year= #{schoolTermQuery.courseYear,jdbcType=VARCHAR}
+  </select>
+
+    <!--查询课程相关-->
+    <select id="getByIdInEvaluate" parameterType="java.lang.String" resultType="java.util.Map">
+    SELECT course_name,course_info.course_id
+    FROM select_course_info,course_info
+    WHERE select_course_info.course_id=course_info.course_id
+    AND student_id=#{studentId,jdbcType=VARCHAR}
+    </select>
+
+    <update id="updateInEvaluate">
+    UPDATE select_course_info
+        set is_evaluate=1,
+        evaluate_score = #{score,jdbcType=INTEGER}
+        where student_id=#{studentId,jdbcType=VARCHAR}
+        AND course_id=(
+        select course_id
+        from course_info
+        where course_info.course_name=#{courseName,jdbcType=VARCHAR}
+        )
+    </update>
+
+    <select id="getCourseInEvaluate" resultType="java.util.Map">
+         SELECT course_name,course_type,course_cycle,course_teacher,is_evaluate,evaluate_score
+         FROM view_select_course
+         WHERE course_id=#{courseId,jdbcType=VARCHAR}
+         AND student_id=#{studentId,jdbcType=VARCHAR}
+    </select>
+
+    <insert id="insertInSelectCourse" parameterType="com.graduation.chen.stuems.model.query.SchoolTermQuery">
+      insert into select_course_info(student_id,course_id,course_term,course_year)
+      values(
+      #{schoolTermQuery.studentId,jdbcType=VARCHAR},
+      #{schoolTermQuery.courseId,jdbcType=VARCHAR},
+      #{schoolTermQuery.courseTerm,jdbcType=INTEGER},
+      #{schoolTermQuery.courseYear,jdbcType=VARCHAR}
+      )
+
+    </insert>
+
+    <select id="getSelectCourseCurrent" parameterType="com.graduation.chen.stuems.model.query.SchoolTermQuery"
+            resultType="java.lang.Integer">
+         SELECT count(*)
+         FROM select_course_info
+         WHERE course_id=#{schoolTermQuery.courseId,jdbcType=VARCHAR}
+         AND student_id=#{schoolTermQuery.studentId,jdbcType=VARCHAR}
+    </select>
+</mapper>

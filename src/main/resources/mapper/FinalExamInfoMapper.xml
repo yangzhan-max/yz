@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.graduation.chen.stuems.dao.FinalExamInfoMapper">
+  <resultMap id="BaseResultMap" type="com.graduation.chen.stuems.entity.FinalExamInfo">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="statue" jdbcType="VARCHAR" property="statue" />
+    <result column="student_id" jdbcType="VARCHAR" property="studentId" />
+    <result column="course_id" jdbcType="VARCHAR" property="courseId" />
+    <result column="final_exam_time" jdbcType="DATE" property="finalExamTime" />
+    <result column="final_exam_place" jdbcType="VARCHAR" property="finalExamPlace" />
+    <result column="final_exam_section" jdbcType="INTEGER" property="finalExamSection" />
+    <result column="final_exam_Invigilator" jdbcType="VARCHAR" property="finalExamInvigilator" />
+    <result column="final_exam_type" jdbcType="VARCHAR" property="finalExamType" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, statue, student_id, course_id, final_exam_time, final_exam_place, final_exam_section, 
+    final_exam_Invigilator, final_exam_type
+  </sql>
+
+
+
+
+  <resultMap id="FinalExamResultMap" type="com.graduation.chen.stuems.model.vo.FinalExamVO">
+
+    <result column="course_name" jdbcType="VARCHAR" property="courseName" />
+    <result column="course_credit" jdbcType="REAL" property="courseCredit" />
+
+    <result column="course_term" jdbcType="INTEGER" property="courseTerm"/>
+    <result column="course_year" jdbcType="VARCHAR" property="courseYear"/>
+
+    <result column="college" jdbcType="VARCHAR" property="college"/>
+    <result column="major" jdbcType="VARCHAR" property="major"/>
+    <result column="department" jdbcType="VARCHAR" property="department"/>
+    <result column="classes" jdbcType="VARCHAR" property="classes"/>
+
+    <result column="statue" jdbcType="VARCHAR" property="statue" />
+    <result column="final_exam_time" jdbcType="DATE" property="finalExamTime" />
+    <result column="final_exam_place" jdbcType="VARCHAR" property="finalExamPlace" />
+    <result column="final_exam_section" jdbcType="INTEGER" property="finalExamSection" />
+    <result column="final_exam_Invigilator" jdbcType="VARCHAR" property="finalExamInvigilator" />
+    <result column="final_exam_type" jdbcType="VARCHAR" property="finalExamType" />
+
+
+  </resultMap>
+
+  <select id="listAllBystudentId" parameterType="java.lang.String" resultMap="FinalExamResultMap">
+    select *
+    from view_final_exam
+    where student_id = #{studentId,jdbcType=VARCHAR}
+  </select>
+
+
+
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from final_exam_info
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from final_exam_info
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.graduation.chen.stuems.entity.FinalExamInfo">
+    insert into final_exam_info (id, statue, student_id, 
+      course_id, final_exam_time, final_exam_place, 
+      final_exam_section, final_exam_Invigilator, 
+      final_exam_type)
+    values (#{id,jdbcType=INTEGER}, #{statue,jdbcType=VARCHAR}, #{studentId,jdbcType=VARCHAR}, 
+      #{courseId,jdbcType=VARCHAR}, #{finalExamTime,jdbcType=DATE}, #{finalExamPlace,jdbcType=VARCHAR}, 
+      #{finalExamSection,jdbcType=INTEGER}, #{finalExamInvigilator,jdbcType=VARCHAR}, 
+      #{finalExamType,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.graduation.chen.stuems.entity.FinalExamInfo">
+    insert into final_exam_info
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="statue != null">
+        statue,
+      </if>
+      <if test="studentId != null">
+        student_id,
+      </if>
+      <if test="courseId != null">
+        course_id,
+      </if>
+      <if test="finalExamTime != null">
+        final_exam_time,
+      </if>
+      <if test="finalExamPlace != null">
+        final_exam_place,
+      </if>
+      <if test="finalExamSection != null">
+        final_exam_section,
+      </if>
+      <if test="finalExamInvigilator != null">
+        final_exam_Invigilator,
+      </if>
+      <if test="finalExamType != null">
+        final_exam_type,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="statue != null">
+        #{statue,jdbcType=VARCHAR},
+      </if>
+      <if test="studentId != null">
+        #{studentId,jdbcType=VARCHAR},
+      </if>
+      <if test="courseId != null">
+        #{courseId,jdbcType=VARCHAR},
+      </if>
+      <if test="finalExamTime != null">
+        #{finalExamTime,jdbcType=DATE},
+      </if>
+      <if test="finalExamPlace != null">
+        #{finalExamPlace,jdbcType=VARCHAR},
+      </if>
+      <if test="finalExamSection != null">
+        #{finalExamSection,jdbcType=INTEGER},
+      </if>
+      <if test="finalExamInvigilator != null">
+        #{finalExamInvigilator,jdbcType=VARCHAR},
+      </if>
+      <if test="finalExamType != null">
+        #{finalExamType,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.graduation.chen.stuems.entity.FinalExamInfo">
+    update final_exam_info
+    <set>
+      <if test="statue != null">
+        statue = #{statue,jdbcType=VARCHAR},
+      </if>
+      <if test="studentId != null">
+        student_id = #{studentId,jdbcType=VARCHAR},
+      </if>
+      <if test="courseId != null">
+        course_id = #{courseId,jdbcType=VARCHAR},
+      </if>
+      <if test="finalExamTime != null">
+        final_exam_time = #{finalExamTime,jdbcType=DATE},
+      </if>
+      <if test="finalExamPlace != null">
+        final_exam_place = #{finalExamPlace,jdbcType=VARCHAR},
+      </if>
+      <if test="finalExamSection != null">
+        final_exam_section = #{finalExamSection,jdbcType=INTEGER},
+      </if>
+      <if test="finalExamInvigilator != null">
+        final_exam_Invigilator = #{finalExamInvigilator,jdbcType=VARCHAR},
+      </if>
+      <if test="finalExamType != null">
+        final_exam_type = #{finalExamType,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.graduation.chen.stuems.entity.FinalExamInfo">
+    update final_exam_info
+    set statue = #{statue,jdbcType=VARCHAR},
+      student_id = #{studentId,jdbcType=VARCHAR},
+      course_id = #{courseId,jdbcType=VARCHAR},
+      final_exam_time = #{finalExamTime,jdbcType=DATE},
+      final_exam_place = #{finalExamPlace,jdbcType=VARCHAR},
+      final_exam_section = #{finalExamSection,jdbcType=INTEGER},
+      final_exam_Invigilator = #{finalExamInvigilator,jdbcType=VARCHAR},
+      final_exam_type = #{finalExamType,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

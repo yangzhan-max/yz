@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>考级报名</title>
+    <!-- Standard -->
+    <link rel="shortcut icon" href="/logo/logo_title.png">
+    <!-- Styles -->
+    <link href="assets/fontAwesome/css/fontawesome-all.min.css" rel="stylesheet">
+    <link href="assets/css/lib/themify-icons.css" rel="stylesheet">
+    <link href="assets/css/lib/mmc-chat.css" rel="stylesheet"/>
+    <link href="assets/css/lib/sidebar.css" rel="stylesheet">
+    <link href="assets/css/lib/bootstrap.min.css" rel="stylesheet">
+    <link href="assets/css/lib/nixon.css" rel="stylesheet">
+    <link href="assets/lib/lobipanel/css/lobipanel.min.css" rel="stylesheet">
+    <link href="assets/css/style.css" rel="stylesheet">
+</head>
+<body>
+<!--left-->
+<div class="sidebar sidebar-hide-to-small sidebar-shrink sidebar-gestures">
+    <div class="nano">
+        <div class="nano-content">
+            <ul>
+                <li>
+                    <a href="index.html"><i class="ti-user"></i> 个人主页</a>
+                </li>
+                <li class="active open">
+                    <a class="sidebar-sub-toggle">
+                        <i class="ti-clipboard"></i> 报名申请
+                        <span class="sidebar-collapse-icon ti-angle-down"></span>
+                    </a>
+                    <ul>
+                        <li class="active">
+                            <a href="sign-levelExam.html">考级项目报名</a>
+                        </li>
+                        <li><a href="sign-teaching.html">教学项目报名</a></li>
+                        <li><a href="sign-makeUp.html">补考确认</a></li>
+                        <li><a href="sign-finalMakeUp.html">毕业补考报名</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a class="sidebar-sub-toggle"><i class="ti-write"></i> 信息维护<span
+                            class="sidebar-collapse-icon ti-angle-down"></span></a>
+                    <ul>
+                        <li><a href="preserve-personalInfo.html">学生信息维护</a></li>
+                        <li><a href="preserve-cultivate.html">个人培养方案</a></li>
+                        <li><a href="preserve-credit.html">创新创业学分确认</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a class="sidebar-sub-toggle"><i class="ti-book"></i> 课程相关 <span
+                            class="sidebar-collapse-icon ti-angle-down"></span></a>
+                    <ul>
+                        <li><a href="course-query.html">学生课表查询</a></li>
+                        <li><a href="course-choose.html">自主选课</a></li>
+                        <li><a href="course-exam.html">考试安排</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a class="sidebar-sub-toggle"><i class="ti-search"></i> 信息查询<span
+                            class="sidebar-collapse-icon ti-angle-down"></span></a>
+                    <ul>
+                        <li><a href="info-warning.html">学籍预警查询</a></li>
+                        <li><a href="info-graduationAudit.html">毕业审核查询</a></li>
+
+                        <li><a href="info-score.html">学生成绩查询</a></li>
+
+
+                    </ul>
+                </li>
+                <li><a target="_blank" href="evaluate.html"><i class="ti-comment-alt"></i> 教学评价</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+<!-- header -->
+<div class="header">
+    <div class="pull-left">
+        <div class="logo login-logo">
+            <a href="index.html">
+                    <span class="label label-primary">
+                     教务管理系统
+                    </span>
+            </a>
+        </div>
+        <div class="hamburger sidebar-toggle">
+            <span class="ti-menu"></span>
+        </div>
+    </div>
+    <div class="pull-right p-r-15">
+        <ul>
+            <li class="header-icon dib"><img class="avatar-img" src="" alt=""/> <span
+                    class="user-avatar"><i class="ti-angle-down f-s-10"></i></span>
+                <div class="drop-down dropdown-profile">
+                    <div class="dropdown-content-body">
+                        <ul>
+                            <li><a href="reset.html"><i class="ti-lock"></i> <span>修改密码</span></a></li><li><a href="new-email.html"><i class="ti-email"></i> <span>修改邮箱</span></a></li>
+                            <li><a href="javascript:void (0)" onclick="exit()"><i class="ti-power-off"></i>
+                                <span>安全退出</span></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>
+<!--content-->
+<div class="content-wrap">
+    <div class="main">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-8 p-0">
+                    <div class="page-header">
+                        <div class="page-title">
+                            <h1><strong>等级考试报名信息</strong></h1>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 p-0">
+                    <div class="page-header">
+                        <div class="page-title">
+                            <ol class="breadcrumb text-right">
+                                <li><a>报名申请</a></li>
+                                <li class="active">考级项目报名</a></li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="main-content">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="card alert">
+                            <div class="card-header ">
+                                <div id="empty"></div>
+                                <h4>等级考试报名信息</h4>
+                            </div>
+                            <div class="card-body">
+                                <table class="table table-responsive table-striped " style="text-align: center">
+                                    <thead>
+                                    <tr>
+                                        <th width="10%">序号</th>
+                                        <th width="10%">报名状态</th>
+                                        <th width="10%">缴费状态</th>
+                                        <th width="10%">报名学年</th>
+                                        <th width="10%">报名学期</th>
+                                        <th width="10%">项目名称</th>
+                                        <th width="10%">项目成绩</th>
+                                        <th width="10%">报名费用</th>
+                                        <th width="10%">证件号码</th>
+                                        <th width="10%">准考证号</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody id="level-exam-content">
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="assets/js/lib/jquery.min.js"></script>
+<script src="assets/js/lib/jquery.nanoscroller.min.js"></script>
+<script src="assets/js/lib/sidebar.js"></script>
+<script src="assets/js/lib/bootstrap.min.js"></script>
+<script src="assets/js/lib/mmc-common.js"></script>
+<script src="assets/js/lib/datamap/d3.min.js"></script>
+<script src="assets/js/lib/datamap/topojson.js"></script>
+<script src="assets/lib/lobipanel/js/lobipanel.js"></script>
+<script src="assets/js/scripts.js"></script>
+
+<script src="js/public.js"></script>
+<script>
+    $(document).ready(function () {
+        //
+        $.ajax({
+            url: '/view/show-level-exam',
+            type: 'get',
+            success: function (result) {
+                let length = result.data.length;
+                if (length === 0) {
+                    $('#empty').addClass("alert alert-info").html('<strong>提示:</strong>（当前学年学期:' + timeJsonData().courseYear + '-' + timeJsonData().courseTerm + '）\n' +
+                        '<strong>未报名相关等级考试</strong>');
+                    return;
+                }
+                //循环数据里的json数组
+                for (let i = 0; i < length; i++) {
+                    let html = " <tr>" +
+                        "<td>" + (i+1) + "</td>\n" +
+                        "<td>" + result.data[i].signState + "</td>\n" +
+                        "<td>" + result.data[i].isPaid + "</td>\n" +
+                        "<td>" + result.data[i].signYear + "</td>\n" +
+                        "<td>" + result.data[i].signTerm + "</td>\n" +
+                        "<td>" + result.data[i].levelExamName + "</td>\n" +
+                        "<td>" + result.data[i].levelExamScore + "</td>\n" +
+                        "<td class=\"color-primary\">￥" + result.data[i].cost + "</td>\n" +
+                        "<td>" + result.data[i].residentId + "</td>\n" +
+                        "<td>" + result.data[i].admissionNumber + "</td>\n" +
+                        "</tr>";
+                    $('#level-exam-content').append(html);
+                }
+            }
+        });
+
+    });
+
+</script>
+</body>
+</html>

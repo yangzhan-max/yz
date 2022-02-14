@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>毕业审核查询</title>
+    <!-- Standard -->
+    <link rel="shortcut icon" href="/logo/logo_title.png">
+    <!-- Styles -->
+    <link href="assets/fontAwesome/css/fontawesome-all.min.css" rel="stylesheet">
+    <link href="assets/css/lib/themify-icons.css" rel="stylesheet">
+    <link href="assets/css/lib/mmc-chat.css" rel="stylesheet"/>
+    <link href="assets/css/lib/sidebar.css" rel="stylesheet">
+    <link href="assets/css/lib/bootstrap.min.css" rel="stylesheet">
+    <link href="assets/css/lib/nixon.css" rel="stylesheet">
+    <link href="assets/lib/lobipanel/css/lobipanel.min.css" rel="stylesheet">
+    <link href="assets/css/style.css" rel="stylesheet">
+</head>
+<body>
+<!--left-->
+<div class="sidebar sidebar-hide-to-small sidebar-shrink sidebar-gestures">
+    <div class="nano">
+        <div class="nano-content">
+            <ul>
+                <li>
+                    <a href="index.html"><i class="ti-user"></i> 个人主页</a></li>
+                <li>
+                    <a class="sidebar-sub-toggle"><i class="ti-clipboard"></i> 报名申请 <span
+                            class="sidebar-collapse-icon ti-angle-down"></span></a>
+                    <ul>
+                        <li><a href="sign-levelExam.html">考级项目报名</a></li>
+                        <li><a href="sign-teaching.html">教学项目报名</a></li>
+                        <li><a href="sign-makeUp.html">补考确认</a></li>
+                        <li><a href="sign-finalMakeUp.html">毕业补考报名</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a class="sidebar-sub-toggle"><i class="ti-write"></i> 信息维护<span
+                            class="sidebar-collapse-icon ti-angle-down"></span></a>
+                    <ul>
+                        <li><a href="preserve-personalInfo.html">学生信息维护</a></li>
+                        <li><a href="preserve-cultivate.html">个人培养方案</a></li>
+                        <li><a href="preserve-credit.html">创新创业学分确认</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a class="sidebar-sub-toggle"><i class="ti-book"></i> 课程相关 <span
+                            class="sidebar-collapse-icon ti-angle-down"></span></a>
+                    <ul>
+                        <li><a href="course-query.html">学生课表查询</a></li>
+                        <li><a href="course-choose.html">自主选课</a></li>
+                        <li><a href="course-exam.html">考试安排</a></li>
+                    </ul>
+                </li>
+                <li class="active open">
+                    <a class="sidebar-sub-toggle"><i class="ti-search"></i> 信息查询<span
+                            class="sidebar-collapse-icon ti-angle-down"></span></a>
+                    <ul>
+                        <li><a href="info-warning.html">学籍预警查询</a></li>
+                        <li class="active"><a href="info-graduationAudit.html">毕业审核查询</a></li>
+
+                        <li><a href="info-score.html">学生成绩查询</a></li>
+
+
+                    </ul>
+                </li>
+                <li><a target="_blank" href="evaluate.html"><i class="ti-comment-alt"></i> 教学评价</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+<!-- header -->
+<div class="header">
+    <div class="pull-left">
+        <div class="logo login-logo">
+            <a href="index.html">
+                    <span class="label label-primary">
+                     教务管理系统
+                    </span>
+            </a>
+        </div>
+        <div class="hamburger sidebar-toggle">
+            <span class="ti-menu"></span>
+        </div>
+    </div>
+    <div class="pull-right p-r-15">
+        <ul>
+            <li class="header-icon dib">
+                <img class="avatar-img"/>
+                <span class="user-avatar"><i class="ti-angle-down f-s-10"></i></span>
+                <div class="drop-down dropdown-profile">
+                    <div class="dropdown-content-body">
+                        <ul>
+                            <li><a href="reset.html"><i class="ti-lock"></i> <span>修改密码</span></a></li>
+                            <li><a href="new-email.html"><i class="ti-email"></i> <span>修改邮箱</span></a></li>
+                            <li><a href="javascript:void (0)" onclick="exit()"><i class="ti-power-off"></i>
+                                <span>安全退出</span></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>
+<!--content-->
+<div class="content-wrap">
+    <div class="main">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="card alert">
+                        <div class="card-header">
+                            <h4>毕业审核查询</h4>
+                            <div class="card-header-right-icon">
+                                <ul>
+                                    <li class="card-close" data-dismiss="alert"><i class="ti-close"></i></li>
+                                </ul>
+                            </div>
+                            <div class="card-body" style="display: flow-root;">
+                                <div class="col-lg-12">
+                                    <div class="panel lobipanel-basic panel-primary">
+                                        <div class="panel-heading">
+                                            <div class="panel-title">主修专业毕业审核</div>
+                                            <div class="panel-title">机审结果：<span style="color: #ed7f7e">不通过</span></div>
+                                        </div>
+                                        <div class="panel-body">
+                                            <table class="table table-responsive table-bordered ">
+                                                <thead>
+                                                <tr>
+                                                    <th>条件</th>
+                                                    <th>参数</th>
+                                                    <th>结果说明</th>
+                                                    <th>审核结果</th>
+                                                </tr>
+                                                </thead>
+                                                <tbody>
+                                                <tr>
+                                                    <td>学分要求主节点1-N</td>
+                                                    <td>学分</td>
+                                                    <td id="content">从创业能力选修课要求4,实际2,职业能力选修课要求6,实际4,不合格!</td>
+                                                    <td><span class="badge-danger">不通过</span></td>
+                                                </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="assets/js/lib/jquery.min.js"></script>
+<script src="assets/js/lib/jquery-ui/jquery-ui.min.js"></script>
+<script src="assets/js/lib/jquery-ui/jquery.ui.touch-punch.min.js"></script>
+<script src="assets/js/lib/bootstrap.min.js"></script>
+<script src="assets/js/lib/lobi-panel/lobipanel.js"></script>
+<script src="assets/js/lib/jquery.nanoscroller.min.js"></script>
+<script src="assets/js/lib/sidebar.js"></script>
+<script src="assets/js/lib/mmc-common.js"></script>
+<script src="assets/js/lib/mmc-chat.js"></script>
+<script src="assets/js/scripts.js"></script>
+<script src="js/public.js"></script>
+<script>
+    $(document).ready(function () {
+
+        $.ajax({
+            url: '/info/show-inCredit',
+            type: 'get',
+            contentType: 'application/json;charset=UTF-8',
+            success: function (result) {
+                let data = result.data;
+                let score1 = 0, score2 = 0;
+                for (let i = 0; i < data.length; i++) {
+                    if (data[i].audit_statue !==     "待审核") {
+                        if (data[i].in_credit_type === "职业能力学分") {
+                            score1 = score1 + in_credit_score;
+                        } else if (data[i].in_credit_type === "创业能力学分") {
+                            score2 = score2 + in_credit_score;
+                        }
+                    }
+                }
+                $('#content')
+                    .html("从创业能力选修课要求4,实际" + score2 + ",职业能力选修课要求6,实际" + score1 + ",不合格!");
+            }
+        })
+
+    })
+
+</script>
+</body>
+</html>

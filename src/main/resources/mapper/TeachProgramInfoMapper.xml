@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.graduation.chen.stuems.dao.TeachProgramInfoMapper">
+    <resultMap id="BaseResultMap" type="com.graduation.chen.stuems.model.vo.TeachProgramInfoVO">
+        <id column="id" jdbcType="INTEGER" property="id"/>
+        <result column="student_id" jdbcType="VARCHAR" property="studentId"/>
+        <result column="course_id" jdbcType="VARCHAR" property="courseId"/>
+        <result column="sign_year" jdbcType="VARCHAR" property="signYear"/>
+        <result column="sign_term" jdbcType="INTEGER" property="signTerm"/>
+        <result column="sign_time" jdbcType="TIMESTAMP" property="signTime"/>
+        <result column="program_type" jdbcType="VARCHAR" property="programType"/>
+        <result column="is_accept" jdbcType="BIT" property="accept"/>
+        <result column="course_name" jdbcType="VARCHAR" property="courseName"/>
+    </resultMap>
+    <sql id="Base_Column_List">
+        id, student_id, course_id, sign_year, sign_term, sign_time, program_type, is_accept,course_name
+    </sql>
+    <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from view_teach_program
+        where student_id = #{studentId,jdbcType=VARCHAR}
+    </select>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+        delete
+        from teach_program_info
+        where id = #{id,jdbcType=INTEGER}
+    </delete>
+    <insert id="insert" parameterType="com.graduation.chen.stuems.entity.TeachProgramInfo">
+        insert into teach_program_info (id, student_id, course_id,
+                                        sign_year, sign_term, sign_time,
+                                        program_type, is_accept)
+        values (#{id,jdbcType=INTEGER}, #{studentId,jdbcType=VARCHAR}, #{courseId,jdbcType=VARCHAR},
+                #{signYear,jdbcType=VARCHAR}, #{signTerm,jdbcType=INTEGER}, #{signTime,jdbcType=TIMESTAMP},
+                #{programType,jdbcType=VARCHAR}, #{isAccept,jdbcType=BIT})
+    </insert>
+    <insert id="insertSelective" parameterType="com.graduation.chen.stuems.entity.TeachProgramInfo">
+        insert into teach_program_info
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                id,
+            </if>
+            <if test="studentId != null">
+                student_id,
+            </if>
+            <if test="courseId != null">
+                course_id,
+            </if>
+            <if test="signYear != null">
+                sign_year,
+            </if>
+            <if test="signTerm != null">
+                sign_term,
+            </if>
+            <if test="signTime != null">
+                sign_time,
+            </if>
+            <if test="programType != null">
+                program_type,
+            </if>
+            <if test="isAccept != null">
+                is_accept,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                #{id,jdbcType=INTEGER},
+            </if>
+            <if test="studentId != null">
+                #{studentId,jdbcType=VARCHAR},
+            </if>
+            <if test="courseId != null">
+                #{courseId,jdbcType=VARCHAR},
+            </if>
+            <if test="signYear != null">
+                #{signYear,jdbcType=VARCHAR},
+            </if>
+            <if test="signTerm != null">
+                #{signTerm,jdbcType=INTEGER},
+            </if>
+            <if test="signTime != null">
+                #{signTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="programType != null">
+                #{programType,jdbcType=VARCHAR},
+            </if>
+            <if test="isAccept != null">
+                #{isAccept,jdbcType=BIT},
+            </if>
+        </trim>
+    </insert>
+    <update id="updateByPrimaryKeySelective" parameterType="com.graduation.chen.stuems.entity.TeachProgramInfo">
+        update teach_program_info
+        <set>
+            <if test="studentId != null">
+                student_id = #{studentId,jdbcType=VARCHAR},
+            </if>
+            <if test="courseId != null">
+                course_id = #{courseId,jdbcType=VARCHAR},
+            </if>
+            <if test="signYear != null">
+                sign_year = #{signYear,jdbcType=VARCHAR},
+            </if>
+            <if test="signTerm != null">
+                sign_term = #{signTerm,jdbcType=INTEGER},
+            </if>
+            <if test="signTime != null">
+                sign_time = #{signTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="programType != null">
+                program_type = #{programType,jdbcType=VARCHAR},
+            </if>
+            <if test="isAccept != null">
+                is_accept = #{isAccept,jdbcType=BIT},
+            </if>
+        </set>
+        where id = #{id,jdbcType=INTEGER}
+    </update>
+    <update id="updateByPrimaryKey" parameterType="com.graduation.chen.stuems.entity.TeachProgramInfo">
+        update teach_program_info
+        set student_id   = #{studentId,jdbcType=VARCHAR},
+            course_id    = #{courseId,jdbcType=VARCHAR},
+            sign_year    = #{signYear,jdbcType=VARCHAR},
+            sign_term    = #{signTerm,jdbcType=INTEGER},
+            sign_time    = #{signTime,jdbcType=TIMESTAMP},
+            program_type = #{programType,jdbcType=VARCHAR},
+            is_accept    = #{isAccept,jdbcType=BIT}
+        where id = #{id,jdbcType=INTEGER}
+    </update>
+</mapper>

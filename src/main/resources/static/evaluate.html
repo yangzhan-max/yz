@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>教学评价</title>
+    <!-- Standard -->
+    <link rel="shortcut icon" href="/logo/logo_title.png">
+    <!-- Styles -->
+    <link href="assets/fontAwesome/css/fontawesome-all.min.css" rel="stylesheet">
+    <link href="assets/css/lib/themify-icons.css" rel="stylesheet">
+    <link href="assets/css/lib/mmc-chat.css" rel="stylesheet"/>
+    <link href="assets/css/lib/sidebar.css" rel="stylesheet">
+    <link href="assets/css/lib/bootstrap.min.css" rel="stylesheet">
+    <link href="assets/css/lib/nixon.css" rel="stylesheet">
+    <link href="assets/lib/lobipanel/css/lobipanel.min.css" rel="stylesheet">
+    <link href="assets/css/style.css" rel="stylesheet">
+    <link rel="stylesheet" href="layui/css/layui.css">
+</head>
+<body>
+<!--left-->
+<div class="sidebar sidebar-hide-to-small sidebar-shrink sidebar-gestures">
+    <div class="nano">
+        <div class="nano-content">
+            <ul>
+                <li>
+                    <a href="index.html"><i class="ti-user"></i> 个人主页</a></li>
+                <li>
+                    <a class="sidebar-sub-toggle"><i class="ti-clipboard"></i> 报名申请 <span
+                            class="sidebar-collapse-icon ti-angle-down"></span></a>
+                    <ul>
+                        <li><a href="sign-levelExam.html">考级项目报名</a></li>
+                        <li><a href="sign-teaching.html">教学项目报名</a></li>
+                        <li><a href="sign-makeUp.html">补考确认</a></li>
+                        <li><a href="sign-finalMakeUp.html">毕业补考报名</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a class="sidebar-sub-toggle"><i class="ti-write"></i> 信息维护<span
+                            class="sidebar-collapse-icon ti-angle-down"></span></a>
+                    <ul>
+                        <li><a href="preserve-personalInfo.html">学生信息维护</a></li>
+                        <li><a href="preserve-cultivate.html">个人培养方案</a></li>
+                        <li><a href="preserve-credit.html">创新创业学分确认</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a class="sidebar-sub-toggle"><i class="ti-book"></i> 课程相关 <span
+                            class="sidebar-collapse-icon ti-angle-down"></span></a>
+                    <ul>
+                        <li><a href="course-query.html">学生课表查询</a></li>
+                        <li><a href="course-choose.html">自主选课</a></li>
+                        <li><a href="course-exam.html">考试安排</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a class="sidebar-sub-toggle"><i class="ti-search"></i> 信息查询<span
+                            class="sidebar-collapse-icon ti-angle-down"></span></a>
+                    <ul>
+                        <li><a href="info-warning.html">学籍预警查询</a></li>
+                        <li><a href="info-graduationAudit.html">毕业审核查询</a></li>
+
+                        <li><a href="info-score.html">学生成绩查询</a></li>
+
+
+                    </ul>
+                </li>
+                <li class="active"><a href="evaluate.html"><i class="ti-comment-alt"></i> 教学评价</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+<!-- header -->
+<div class="header">
+    <div class="pull-left">
+        <div class="logo login-logo">
+            <a href="index.html">
+                    <span class="label label-primary">
+                     教务管理系统
+                    </span>
+            </a>
+        </div>
+        <div class="hamburger sidebar-toggle">
+            <span class="ti-menu"></span>
+        </div>
+    </div>
+    <div class="pull-right p-r-15">
+        <ul>
+            <li class="header-icon dib">
+                <img class="avatar-img" src="" alt=""/>
+                <span class="user-avatar"><i class="ti-angle-down f-s-10"></i></span>
+                <div class="drop-down dropdown-profile">
+                    <div class="dropdown-content-body">
+                        <ul>
+                            <li><a href="reset.html"><i class="ti-lock"></i> <span>修改密码</span></a></li>
+                            <li><a href="new-email.html"><i class="ti-email"></i> <span>修改邮箱</span></a></li>
+                            <li><a href="javascript:void (0)" onclick="exit()"><i class="ti-power-off"></i>
+                                <span>安全退出</span></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>
+
+<div class="content-wrap">
+    <div class="main">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-8 p-0">
+                    <div class="page-header">
+                        <div class="page-title">
+                            <h1><strong>自主选课</strong></h1>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 p-0">
+                    <div class="page-header">
+                        <div class="page-title">
+                            <ol class="breadcrumb text-right">
+                                <li><a>课程相关</a></li>
+                                <li class="active">自主选课</li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="main-content">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="card alert" style="display: flow-root;">
+                            <div class="card-header">
+                                <div class="card-body">
+                                    <div class="col-lg-12">
+                                        <div class="panel lobipanel-basic panel-primary">
+                                            <div class="panel-heading">
+                                                <div class="panel-title">评价课程及内容</div>
+                                            </div>
+                                            <div class="layui-tab" style="padding: 20px;">
+                                                <ul id="ulHeader" class="nav nav-tabs" role="tablist">
+                                                    <!--                                                    <li role="presentation" class="active">-->
+                                                    <!--                                                        <a href="#1" aria-controls="1" role="tab" data-toggle="tab"-->
+                                                    <!--                                                           aria-expanded="true">计算机网络</a>-->
+                                                    <!--                                                    </li>-->
+                                                </ul>
+                                                <div id="content" class="tab-content">
+
+                                                    <!--                                                    <div role="tabpanel" class="tab-pane active" id="1">-->
+                                                    <!--                                                        <iframe src="./test.html" id="contentIframe" width="100%"-->
+                                                    <!--                                                                height="800px"></iframe>-->
+                                                    <!--                                                    </div>-->
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="assets/js/lib/jquery.min.js"></script>
+<script src="assets/js/lib/jquery-ui/jquery-ui.min.js"></script>
+<script src="assets/js/lib/jquery-ui/jquery.ui.touch-punch.min.js"></script>
+<script src="assets/js/lib/bootstrap.min.js"></script>
+<script src="assets/js/lib/lobi-panel/lobipanel.js"></script>
+<script src="assets/js/lib/jquery.nanoscroller.min.js"></script>
+<script src="assets/js/lib/sidebar.js"></script>
+<script src="assets/js/lib/mmc-common.js"></script>
+<script src="assets/js/lib/mmc-chat.js"></script>
+<script src="assets/js/scripts.js"></script>
+<!--<script src="layui/layui.js"></script>-->
+
+<script src="js/public.js"></script>
+<script>
+    $(document).ready(function () {
+
+        $.ajax({
+            url: '/evaluate/show-ev',
+            type: 'get',
+            contentType: 'application/json;charset=UTF-8',
+            success: function (result) {
+                let data = result.data;
+                for (let i = 0; i < data.length; i++) {
+                    let innerHTML1 = "<li role=\"presentation\">" +
+                        "<a href=\"#" + (i + 1) + "\" aria-controls=\"" + (i + 1) +
+                        "\" role=\"tab\" data-toggle=\"tab\"\n" +
+                        "aria-expanded=\"true\">" + data[i].course_name + "</a>\n" +
+                        "</li>";
+                    $('#ulHeader').prepend(innerHTML1);
+                }
+                for (let j = 0; j < data.length; j++) {
+                    let innerHTML2 = " <div role=\"tabpanel\" class=\"tab-pane\" id=\"" + (j + 1) + "\">\n" +
+                        "<iframe src=\"./evaluate-content.html?courseId=" + data[j].course_id + "\" width=\"100%\"\n" +
+                        "height=\"800px\"></iframe>\n" +
+                        "</div>";
+                    $('#content').prepend(innerHTML2);
+                }
+                $('#ulHeader').children("li").eq(0).addClass("active");
+                $('#content').children("div").eq(0).addClass("active");
+            }
+        })
+
+    })
+</script>
+</body>
+</html>

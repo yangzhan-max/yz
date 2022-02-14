@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.graduation.chen.stuems.dao.CourseInfoMapper">
+    <resultMap id="BaseResultMap" type="com.graduation.chen.stuems.entity.CourseInfo">
+        <id column="course_id" jdbcType="VARCHAR" property="courseId"/>
+        <result column="course_name" jdbcType="VARCHAR" property="courseName"/>
+        <result column="course_place" jdbcType="VARCHAR" property="coursePlace"/>
+        <result column="course_teacher" jdbcType="VARCHAR" property="courseTeacher"/>
+        <result column="course_week" jdbcType="INTEGER" property="courseWeek"/>
+        <result column="course_section" jdbcType="INTEGER" property="courseSection"/>
+        <result column="course_cycle" jdbcType="VARCHAR" property="courseCycle"/>
+        <result column="course_credit" jdbcType="REAL" property="courseCredit"/>
+        <result column="course_type" jdbcType="VARCHAR" property="courseType"/>
+        <result column="course_begin" jdbcType="DATE" property="courseBegin"/>
+        <result column="course_belong" jdbcType="VARCHAR" property="courseBelong"/>
+    </resultMap>
+
+    <resultMap id="CreditViewResultMap" type="com.graduation.chen.stuems.model.vo.CreditWarningVO">
+        <id column="course_id" jdbcType="VARCHAR" property="courseId"/>
+        <result column="course_name" jdbcType="VARCHAR" property="courseName"/>
+        <result column="course_credit" jdbcType="REAL" property="courseCredit"/>
+        <result column="course_type" jdbcType="VARCHAR" property="courseType"/>
+        <result column="course_term" jdbcType="INTEGER" property="courseTerm"/>
+        <result column="course_year" jdbcType="VARCHAR" property="courseYear"/>
+        <result column="course_score" jdbcType="INTEGER" property="courseScore"/>
+        <result column="course_score_second" jdbcType="INTEGER" property="courseScoreSecond"/>
+        <result column="course_score_final" jdbcType="INTEGER" property="courseScoreFinal"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        course_id, course_name, course_place, course_teacher, course_week, course_section,
+    course_cycle, course_credit,course_type,course_begin,course_belong
+    </sql>
+
+    <select id="listAllByCourseBelong" parameterType="java.lang.String" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from course_info
+        where course_belong = #{courseBelong,jdbcType=VARCHAR}
+    </select>
+    <select id="listAllBySearch" parameterType="java.lang.String" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from course_info
+        where course_belong = #{courseBelong,jdbcType=VARCHAR} AND
+        course_name like #{courseName,jdbcType=VARCHAR}
+    </select>
+
+    <select id="listCreditInfoByStudentId" parameterType="java.lang.String" resultMap="CreditViewResultMap">
+        select course_id,
+               course_name,
+               course_credit,
+               course_type,
+               course_term,
+               course_year,
+               course_score,
+               course_score_second,
+               course_score_final
+        from view_warning
+        where student_id = #{studentId,jdbcType=VARCHAR}
+    </select>
+</mapper>

@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>学籍预警查询</title>
+    <!-- Standard -->
+    <link rel="shortcut icon" href="/logo/logo_title.png">
+    <!-- Styles -->
+    <link href="assets/fontAwesome/css/fontawesome-all.min.css" rel="stylesheet">
+    <link href="assets/css/lib/themify-icons.css" rel="stylesheet">
+    <link href="assets/css/lib/mmc-chat.css" rel="stylesheet"/>
+    <link href="assets/css/lib/sidebar.css" rel="stylesheet">
+    <link href="assets/css/lib/bootstrap.min.css" rel="stylesheet">
+    <link href="assets/css/lib/nixon.css" rel="stylesheet">
+    <link href="assets/css/style.css" rel="stylesheet">
+</head>
+
+<body>
+<!--left-->
+<div class="sidebar sidebar-hide-to-small sidebar-shrink sidebar-gestures">
+    <div class="nano">
+        <div class="nano-content">
+            <ul>
+                <li>
+                    <a href="index.html"><i class="ti-user"></i> 个人主页</a></li>
+                <li>
+                    <a class="sidebar-sub-toggle"><i class="ti-clipboard"></i> 报名申请 <span
+                            class="sidebar-collapse-icon ti-angle-down"></span></a>
+                    <ul>
+                        <li><a href="sign-levelExam.html">考级项目报名</a></li>
+                        <li><a href="sign-teaching.html">教学项目报名</a></li>
+                        <li><a href="sign-makeUp.html">补考确认</a></li>
+                        <li><a href="sign-finalMakeUp.html">毕业补考报名</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a class="sidebar-sub-toggle"><i class="ti-write"></i> 信息维护<span
+                            class="sidebar-collapse-icon ti-angle-down"></span></a>
+                    <ul>
+                        <li><a href="preserve-personalInfo.html">学生信息维护</a></li>
+                        <li><a href="preserve-cultivate.html">个人培养方案</a></li>
+                        <li><a href="preserve-credit.html">创新创业学分确认</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a class="sidebar-sub-toggle"><i class="ti-book"></i> 课程相关 <span
+                            class="sidebar-collapse-icon ti-angle-down"></span></a>
+                    <ul>
+                        <li><a href="course-query.html">学生课表查询</a></li>
+                        <li><a href="course-choose.html">自主选课</a></li>
+                        <li><a href="course-exam.html">考试安排</a></li>
+                    </ul>
+                </li>
+                <li class="active open">
+                    <a class="sidebar-sub-toggle"><i class="ti-search"></i> 信息查询<span
+                            class="sidebar-collapse-icon ti-angle-down"></span></a>
+                    <ul>
+                        <li class="active"><a href="info-warning.html">学籍预警查询</a></li>
+                        <li><a href="info-graduationAudit.html">毕业审核查询</a></li>
+
+                        <li><a href="info-score.html">学生成绩查询</a></li>
+
+
+                    </ul>
+                </li>
+                <li><a target="_blank" href="evaluate.html"><i class="ti-comment-alt"></i> 教学评价</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+<!-- header -->
+<div class="header">
+    <div class="pull-left">
+        <div class="logo login-logo">
+            <a href="index.html">
+                    <span class="label label-primary">
+                     教务管理系统
+                    </span>
+            </a>
+        </div>
+        <div class="hamburger sidebar-toggle">
+            <span class="ti-menu"></span>
+        </div>
+    </div>
+    <div class="pull-right p-r-15">
+        <ul>
+            <li class="header-icon dib">
+                <img class="avatar-img" alt=""/>
+                <span class="user-avatar">
+                    <i class="ti-angle-down f-s-10"></i>
+                </span>
+                <div class="drop-down dropdown-profile">
+                    <div class="dropdown-content-body">
+                        <ul>
+                            <li><a href="reset.html"><i class="ti-lock"></i> <span>修改密码</span></a></li><li><a href="new-email.html"><i class="ti-email"></i> <span>修改邮箱</span></a></li>
+                            <li><a href="javascript:void (0)" onclick="exit()"><i class="ti-power-off"></i>
+                                <span>安全退出</span></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>
+<!--content-->
+<div class="content-wrap">
+    <div class="main">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-8 p-0">
+                    <div class="page-header">
+                        <div class="page-title">
+                            <h1><strong>信息查询</strong></h1>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 p-0">
+                    <div class="page-header">
+                        <div class="page-title">
+                            <ol class="breadcrumb text-right">
+                                <li><a>信息查询</a></li>
+                                <li class="active">学籍预警处理</li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="main-content">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="card alert nestable-cart">
+                            <div class="card-header">
+                                <div id="total" class="alert alert-info"></div>
+                                <h4>学籍预警查询</h4>
+                            </div>
+                            <div class="card-body">
+                                <div class="panel-group" id="accordion">
+                                    <div class="panel panel-default">
+                                        <div class="panel-heading">
+                                            <h4 id="title1" class="panel-title">
+                                                <a data-toggle="collapse" data-parent="#accordion"
+                                                   href="#collapse1" aria-expanded="true" class="">
+                                                    公共必修课&nbsp;&nbsp;&nbsp;&nbsp;
+                                                </a>
+
+                                            </h4>
+                                        </div>
+                                        <div id="collapse1" class="panel-collapse collapse in" aria-expanded="true">
+                                            <table class="table table-responsive table-bordered ">
+                                                <thead>
+                                                <tr>
+                                                    <th width="10%">课程编号</th>
+                                                    <th width="10%">课程名称</th>
+                                                    <th width="10%">学年</th>
+                                                    <th width="10%">学期</th>
+                                                    <th width="10%">学分</th>
+                                                    <th width="10%">成绩</th>
+                                                    <th width="10%">补考</th>
+                                                    <th width="10%">毕业清考</th>
+                                                    <th width="10%">类型</th>
+                                                    <th width="10%">状态</th>
+                                                </tr>
+                                                </thead>
+                                                <tbody id="content1"></tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                    <div class="panel panel-default">
+                                        <div class="panel-heading">
+                                            <h4 id="title2" class="panel-title">
+                                                <a data-toggle="collapse" data-parent="#accordion"
+                                                   href="#collapse2" class="collapsed" aria-expanded="false">
+                                                    专业主干课&nbsp;&nbsp;&nbsp;&nbsp;
+                                                </a></h4>
+                                        </div>
+                                        <div id="collapse2" class="panel-collapse collapse" aria-expanded="false"
+                                             style="height: 0px;">
+                                            <table class="table table-responsive table-bordered ">
+                                                <tr>
+                                                    <th width="10%">课程编号</th>
+                                                    <th width="10%">课程名称</th>
+                                                    <th width="10%">学年</th>
+                                                    <th width="10%">学期</th>
+                                                    <th width="10%">学分</th>
+                                                    <th width="10%">成绩</th>
+                                                    <th width="10%">补考</th>
+                                                    <th width="10%">毕业清考</th>
+                                                    <th width="10%">类型</th>
+                                                    <th width="10%">状态</th>
+                                                </tr>
+                                                </thead>
+                                                <tbody id="content2"></tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                    <div class="panel panel-default">
+                                        <div class="panel-heading">
+                                            <h4 id="title3" class="panel-title">
+                                                <a data-toggle="collapse" data-parent="#accordion" href="#collapse3"
+                                                   class="collapsed" aria-expanded="false">
+                                                    专业基础课&nbsp;&nbsp;&nbsp;&nbsp;
+                                                </a>
+                                            </h4>
+                                        </div>
+                                        <div id="collapse3" class="panel-collapse collapse" aria-expanded="false">
+                                            <table class="table table-responsive table-bordered ">
+                                                <thead>
+                                                <tr>
+                                                    <th width="10%">课程编号</th>
+                                                    <th width="10%">课程名称</th>
+                                                    <th width="10%">学年</th>
+                                                    <th width="10%">学期</th>
+                                                    <th width="10%">学分</th>
+                                                    <th width="10%">成绩</th>
+                                                    <th width="10%">补考</th>
+                                                    <th width="10%">毕业清考</th>
+                                                    <th width="10%">类型</th>
+                                                    <th width="10%">状态</th>
+                                                </tr>
+                                                </thead>
+                                                <tbody id="content3"></tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                    <div class="panel panel-default">
+                                        <div class="panel-heading">
+                                            <h4 id="title4" class="panel-title">
+                                                <a data-toggle="collapse" data-parent="#accordion" href="#collapse4"
+                                                   class="collapsed" aria-expanded="false">
+                                                    专业选修课&nbsp;&nbsp;&nbsp;&nbsp;
+                                                </a>
+                                            </h4>
+                                        </div>
+                                        <div id="collapse4" class="panel-collapse collapse" aria-expanded="false">
+                                            <table class="table table-responsive table-bordered ">
+                                                <thead>
+                                                <tr>
+                                                    <th width="10%">课程编号</th>
+                                                    <th width="10%">课程名称</th>
+                                                    <th width="10%">学年</th>
+                                                    <th width="10%">学期</th>
+                                                    <th width="10%">学分</th>
+                                                    <th width="10%">成绩</th>
+                                                    <th width="10%">补考</th>
+                                                    <th width="10%">毕业清考</th>
+                                                    <th width="10%">类型</th>
+                                                    <th width="10%">状态</th>
+                                                </tr>
+                                                </thead>
+                                                <tbody id="content4"></tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                    <div class="panel panel-default">
+                                        <div class="panel-heading">
+                                            <h4 id="title5" class="panel-title">
+                                                <a data-toggle="collapse" data-parent="#accordion" href="#collapse5"
+                                                   class="collapsed" aria-expanded="false">
+                                                    综合实践课&nbsp;&nbsp;&nbsp;&nbsp;
+                                                </a>
+                                            </h4>
+                                        </div>
+                                        <div id="collapse5" class="panel-collapse collapse" aria-expanded="false">
+                                            <table class="table table-responsive table-bordered ">
+                                                <thead>
+                                                <tr>
+                                                    <th width="10%">课程编号</th>
+                                                    <th width="10%">课程名称</th>
+                                                    <th width="10%">学年</th>
+                                                    <th width="10%">学期</th>
+                                                    <th width="10%">学分</th>
+                                                    <th width="10%">成绩</th>
+                                                    <th width="10%">补考</th>
+                                                    <th width="10%">毕业清考</th>
+                                                    <th width="10%">类型</th>
+                                                    <th width="10%">状态</th>
+                                                </tr>
+                                                </thead>
+                                                <tbody id="content5"></tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                    <div class="panel panel-default">
+                                        <div class="panel-heading">
+                                            <h4 id="title6" class="panel-title">
+                                                <a data-toggle="collapse" data-parent="#accordion" href="#collapse6"
+                                                   class="collapsed" aria-expanded="false">
+                                                    创业职业能力必修课&nbsp;&nbsp;&nbsp;&nbsp;
+                                                </a>
+                                            </h4>
+                                        </div>
+                                        <div id="collapse6" class="panel-collapse collapse" aria-expanded="false">
+                                            <table class="table table-responsive table-bordered ">
+                                                <thead>
+                                                <tr>
+                                                    <th width="10%">课程编号</th>
+                                                    <th width="10%">课程名称</th>
+                                                    <th width="10%">学年</th>
+                                                    <th width="10%">学期</th>
+                                                    <th width="10%">学分</th>
+                                                    <th width="10%">成绩</th>
+                                                    <th width="10%">补考</th>
+                                                    <th width="10%">毕业清考</th>
+                                                    <th width="10%">类型</th>
+                                                    <th width="10%">状态</th>
+                                                </tr>
+                                                </thead>
+                                                <tbody id="content6"></tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                    <div class="panel panel-default">
+                                        <div class="panel-heading">
+                                            <h4 id="title7" class="panel-title">
+                                                <a data-toggle="collapse" data-parent="#accordion" href="#collapse7"
+                                                   class="collapsed" aria-expanded="false">
+                                                    创业职业能力选修课&nbsp;&nbsp;&nbsp;&nbsp;
+                                                </a>
+                                            </h4>
+                                        </div>
+                                        <div id="collapse7" class="panel-collapse collapse" aria-expanded="false">
+                                            <table class="table table-responsive table-bordered ">
+                                                <thead>
+                                                <tr>
+                                                    <th width="10%">课程编号</th>
+                                                    <th width="10%">课程名称</th>
+                                                    <th width="10%">学年</th>
+                                                    <th width="10%">学期</th>
+                                                    <th width="10%">学分</th>
+                                                    <th width="10%">成绩</th>
+                                                    <th width="10%">补考</th>
+                                                    <th width="10%">毕业清考</th>
+                                                    <th width="10%">类型</th>
+                                                    <th width="10%">状态</th>
+                                                </tr>
+                                                </thead>
+                                                <tbody id="content7"></tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+<script src="assets/js/lib/jquery.min.js"></script>
+<script src="assets/js/lib/jquery-ui/jquery-ui.min.js"></script>
+<script src="assets/js/lib/jquery-ui/jquery.ui.touch-punch.min.js"></script>
+<script src="assets/js/lib/bootstrap.min.js"></script>
+<script src="assets/js/lib/lobi-panel/lobipanel.js"></script>
+<script src="assets/js/lib/jquery.nanoscroller.min.js"></script>
+<script src="assets/js/lib/sidebar.js"></script>
+<script src="assets/js/lib/mmc-common.js"></script>
+<script src="assets/js/scripts.js"></script>
+<script src="js/public.js"></script>
+<script>
+    $(function () {
+        $.ajax({
+            url: '/search/credit',
+            type: 'get',
+            success: function (result) {
+                let data = result.data;
+                //循环渲染数据
+                for (let i = 0; i < data.length; i++) {
+                    let html = "<td><span class=\"badge badge-primary\">已完成</span></td>\n";
+                    if (data[i].courseScore < 60 && data[i].courseScoreSecond < 60 &&
+                        data[i].courseScoreFinal < 60) {
+                        html = "<td><span class=\"badge badge-danger\">未完成</span></td>\n"
+                    }
+                    let innerHtml = " <tr>\n" +
+                        "<td>" + data[i].courseId + "</td>\n" +
+                        "<td>" + data[i].courseName + "</td>\n" +
+                        "<td>" + data[i].courseYear + "</td>\n" +
+                        "<td>" + data[i].courseTerm + "</td>\n" +
+                        "<td>" + data[i].courseCredit.toFixed(1) + "</td>\n" +
+                        "<td>" + data[i].courseScore + "</td>\n" +
+                        "<td>" + data[i].courseScoreSecond + "</td>\n" +
+                        "<td>" + data[i].courseScoreFinal + "</td>\n" +
+                        "<td>" + data[i].courseType + "</td>\n" + html +
+                        "</tr>";
+                    switch (data[i].courseType) {
+                        case "公共必修课":
+                            $('#content1').append(innerHtml);
+                            break;
+                        case "专业主干课":
+                            $('#content2').append(innerHtml);
+                            break;
+                        case "专业基础课":
+                            $('#content3').append(innerHtml);
+                            break;
+                        case "专业选修课":
+                            $('#content4').append(innerHtml);
+                            break;
+                        case "综合实践课":
+                            $('#content5').append(innerHtml);
+                            break;
+                        case "创新职业能力必修课":
+                            $('#content6').append(innerHtml);
+                            break;
+                        case "创新职业能力选修课":
+                            $('#content7').append(innerHtml);
+                            break;
+                    }
+                }
+                //总计已完成课程
+                let allComplete = 0;
+                //总计已修学分
+                let allReceiveCredits = 0.0;
+                //总计课程
+                let allTotalCourses = 0;
+                //总计学分
+                let allTotalCredits = 0.0;
+                for (let i = 1; i <= 7; i++) {
+                    //已完成课程
+                    let complete = 0;
+                    //已修学分
+                    let receiveCredits = 0.0;
+                    //总共课程
+                    let totalCourses = 0;
+                    //总共学分
+                    let totalCredits = 0.0;
+                    $('#content' + i).find('tr').each(function () {
+                        //当前状态属性
+                        let currentAttr = $(this).find('td:eq(9)').text();
+                        //当前学分
+                        let currentCredit = Number($(this).find('td:eq(4)').text());
+                        //如果该课程已完成
+                        if (currentAttr === '已完成') {
+                            //已完成课程+1
+                            complete = complete + 1;
+                            //已修学分自加
+                            receiveCredits = receiveCredits + currentCredit;
+                        }
+                        //总课程数
+                        totalCourses = totalCourses + 1;
+                        //总共学分
+                        totalCredits = totalCredits + currentCredit;
+                    });
+                    //要渲染的html
+                    let innerHtml = "已完成\n" + complete + "&nbsp;\n已修学分\n" + receiveCredits + "&nbsp;\n未完成\n" +
+                        (totalCourses - complete) + "&nbsp;\n课程数\n" + totalCourses + "&nbsp;\n总学分\n" + totalCredits;
+                    $('#title' + i).append(innerHtml);
+                    //总计面板
+                    allComplete = allComplete + complete;
+                    allReceiveCredits = allReceiveCredits + receiveCredits;
+                    allTotalCourses = allTotalCourses + totalCourses;
+                    allTotalCredits = allReceiveCredits + totalCredits;
+                }
+                let innerHtml = "<strong>总计</strong>\n已完成\n" + allComplete + "&nbsp;\n已修学分\n" + allReceiveCredits + "&nbsp;\n未完成\n" +
+                    (allTotalCourses - allComplete) + "&nbsp;\n课程数\n" + allTotalCourses + "&nbsp;\n总学分\n" + allReceiveCredits;
+                $('#total').html(innerHtml);
+            }
+        });
+    })
+</script>
+</body>
+</html>

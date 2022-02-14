@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.graduation.chen.stuems.dao.AllInfoMapper">
+    <resultMap id="BaseResultMap" type="java.util.HashMap">
+        <id column="resident_id" jdbcType="VARCHAR" property="residentId"/>
+        <result column="name" jdbcType="VARCHAR" property="name"/>
+        <result column="gender" jdbcType="CHAR" property="gender"/>
+        <result column="native_place" jdbcType="VARCHAR" property="nativePlace"/>
+        <result column="borth_date" jdbcType="DATE" property="borthDate"/>
+        <result column="nation" jdbcType="VARCHAR" property="nation"/>
+        <result column="minority" jdbcType="VARCHAR" property="minority"/>
+        <result column="political_face" jdbcType="VARCHAR" property="politicalFace"/>
+        <result column="resident_type" jdbcType="VARCHAR" property="residentType"/>
+    </resultMap>
+
+    <!--查询所有身份信息根据学号-->
+    <select id="selectAllByStudentIdInResident" parameterType="java.lang.String" resultMap="BaseResultMap">
+        select resident_id,
+               name,
+               gender,
+               native_place,
+               borth_date,
+               nation,
+               minority,
+               political_face,
+               resident_type
+
+        from base_resident_view
+        where student_id = #{studentId,jdbcType=VARCHAR}
+    </select>
+</mapper>

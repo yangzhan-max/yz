@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.graduation.chen.stuems.dao.LevelExamInfoMapper">
+    <resultMap id="BaseResultMap" type="com.graduation.chen.stuems.entity.LevelExamInfo">
+        <id column="id" jdbcType="INTEGER" property="id"/>
+        <result column="student_id" jdbcType="VARCHAR" property="studentId"/>
+        <result column="resident_id" jdbcType="CHAR" property="residentId"/>
+        <result column="level_exam_name" jdbcType="VARCHAR" property="levelExamName"/>
+        <result column="level_exam_score" jdbcType="INTEGER" property="levelExamScore"/>
+        <result column="cost" jdbcType="DECIMAL" property="cost"/>
+        <result column="sign_year" jdbcType="VARCHAR" property="signYear"/>
+        <result column="sign_term" jdbcType="INTEGER" property="signTerm"/>
+        <result column="is_paid" jdbcType="BIT" property="isPaid"/>
+        <result column="sign_state" jdbcType="BIT" property="signState"/>
+        <result column="admission_number" jdbcType="VARCHAR" property="admissionNumber"/>
+    </resultMap>
+    <sql id="Base_Column_List">
+    id, student_id, resident_id, level_exam_name, level_exam_score, cost, sign_year, 
+    sign_term, is_paid, sign_state, admission_number
+  </sql>
+
+    <select id="selectAllByStudentId" parameterType="java.lang.String" resultMap="BaseResultMap">
+      select
+      <include refid="Base_Column_List"/>
+      from level_exam_info
+      where student_id = #{studentId,jdbcType=VARCHAR}
+    </select>
+
+
+    <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from level_exam_info
+        where id = #{id,jdbcType=INTEGER}
+    </select>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from level_exam_info
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+    <insert id="insert" parameterType="com.graduation.chen.stuems.entity.LevelExamInfo">
+    insert into level_exam_info (id, student_id, resident_id, 
+      level_exam_name, level_exam_score, cost, 
+      sign_year, sign_term, is_paid, 
+      sign_state, admission_number)
+    values (#{id,jdbcType=INTEGER}, #{studentId,jdbcType=VARCHAR}, #{residentId,jdbcType=CHAR}, 
+      #{levelExamName,jdbcType=VARCHAR}, #{levelExamScore,jdbcType=INTEGER}, #{cost,jdbcType=DECIMAL}, 
+      #{signYear,jdbcType=VARCHAR}, #{signTerm,jdbcType=INTEGER}, #{isPaid,jdbcType=BIT}, 
+      #{signState,jdbcType=BIT}, #{admissionNumber,jdbcType=VARCHAR})
+  </insert>
+    <insert id="insertSelective" parameterType="com.graduation.chen.stuems.entity.LevelExamInfo">
+        insert into level_exam_info
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                id,
+            </if>
+            <if test="studentId != null">
+                student_id,
+            </if>
+            <if test="residentId != null">
+                resident_id,
+            </if>
+            <if test="levelExamName != null">
+                level_exam_name,
+            </if>
+            <if test="levelExamScore != null">
+                level_exam_score,
+            </if>
+            <if test="cost != null">
+                cost,
+            </if>
+            <if test="signYear != null">
+                sign_year,
+            </if>
+            <if test="signTerm != null">
+                sign_term,
+            </if>
+            <if test="isPaid != null">
+                is_paid,
+            </if>
+            <if test="signState != null">
+                sign_state,
+            </if>
+            <if test="admissionNumber != null">
+                admission_number,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                #{id,jdbcType=INTEGER},
+            </if>
+            <if test="studentId != null">
+                #{studentId,jdbcType=VARCHAR},
+            </if>
+            <if test="residentId != null">
+                #{residentId,jdbcType=CHAR},
+            </if>
+            <if test="levelExamName != null">
+                #{levelExamName,jdbcType=VARCHAR},
+            </if>
+            <if test="levelExamScore != null">
+                #{levelExamScore,jdbcType=INTEGER},
+            </if>
+            <if test="cost != null">
+                #{cost,jdbcType=DECIMAL},
+            </if>
+            <if test="signYear != null">
+                #{signYear,jdbcType=VARCHAR},
+            </if>
+            <if test="signTerm != null">
+                #{signTerm,jdbcType=INTEGER},
+            </if>
+            <if test="isPaid != null">
+                #{isPaid,jdbcType=BIT},
+            </if>
+            <if test="signState != null">
+                #{signState,jdbcType=BIT},
+            </if>
+            <if test="admissionNumber != null">
+                #{admissionNumber,jdbcType=VARCHAR},
+            </if>
+        </trim>
+    </insert>
+    <update id="updateByPrimaryKeySelective" parameterType="com.graduation.chen.stuems.entity.LevelExamInfo">
+        update level_exam_info
+        <set>
+            <if test="studentId != null">
+                student_id = #{studentId,jdbcType=VARCHAR},
+            </if>
+            <if test="residentId != null">
+                resident_id = #{residentId,jdbcType=CHAR},
+            </if>
+            <if test="levelExamName != null">
+                level_exam_name = #{levelExamName,jdbcType=VARCHAR},
+            </if>
+            <if test="levelExamScore != null">
+                level_exam_score = #{levelExamScore,jdbcType=INTEGER},
+            </if>
+            <if test="cost != null">
+                cost = #{cost,jdbcType=DECIMAL},
+            </if>
+            <if test="signYear != null">
+                sign_year = #{signYear,jdbcType=VARCHAR},
+            </if>
+            <if test="signTerm != null">
+                sign_term = #{signTerm,jdbcType=INTEGER},
+            </if>
+            <if test="isPaid != null">
+                is_paid = #{isPaid,jdbcType=BIT},
+            </if>
+            <if test="signState != null">
+                sign_state = #{signState,jdbcType=BIT},
+            </if>
+            <if test="admissionNumber != null">
+                admission_number = #{admissionNumber,jdbcType=VARCHAR},
+            </if>
+        </set>
+        where id = #{id,jdbcType=INTEGER}
+    </update>
+    <update id="updateByPrimaryKey" parameterType="com.graduation.chen.stuems.entity.LevelExamInfo">
+    update level_exam_info
+    set student_id = #{studentId,jdbcType=VARCHAR},
+      resident_id = #{residentId,jdbcType=CHAR},
+      level_exam_name = #{levelExamName,jdbcType=VARCHAR},
+      level_exam_score = #{levelExamScore,jdbcType=INTEGER},
+      cost = #{cost,jdbcType=DECIMAL},
+      sign_year = #{signYear,jdbcType=VARCHAR},
+      sign_term = #{signTerm,jdbcType=INTEGER},
+      is_paid = #{isPaid,jdbcType=BIT},
+      sign_state = #{signState,jdbcType=BIT},
+      admission_number = #{admissionNumber,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

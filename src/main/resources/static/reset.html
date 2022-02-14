@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>重置密码</title>
+    <!-- Standard -->
+    <link rel="shortcut icon" href="/logo/logo_title.png">
+    <!-- Styles -->
+    <link href="assets/fontAwesome/css/fontawesome-all.min.css" rel="stylesheet">
+    <link href="assets/css/lib/themify-icons.css" rel="stylesheet">
+    <link href="assets/css/lib/bootstrap.min.css" rel="stylesheet">
+    <link href="assets/css/lib/nixon.css" rel="stylesheet">
+    <link href="assets/css/style.css" rel="stylesheet">
+    <link href="./layui/css/layui.css" rel="stylesheet">
+</head>
+<body class="bg-primary">
+<div class="Nixon-login">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6 col-lg-offset-3">
+                <div class="login-content">
+                    <div class="login-logo">
+                        <a><span>By Chen</span></a>
+                    </div>
+                    <div class="login-form">
+                        <h4>重置密码</h4>
+                        <form id="form-reset">
+                            <div id="empty"></div>
+                            <div class="form-group">
+                                <label>学号</label>
+                                <input type="text" id="username" class="form-control input-default" placeholder="输入学号"
+                                       oninput="value=value.replace(/[^\d]/g,'')"/>
+                            </div>
+                            <div class="form-group ">
+                                <label>邮箱地址</label>
+                                <input id="email" type="email" class="form-control input-default" placeholder="输入邮箱地址">
+                            </div>
+                            <div class="form-group">
+                                <label>验证码</label>
+                                <div class="input-group input-group-flat">
+                                    <input id="input-code" type="text" class="form-control input-default"
+                                           placeholder="输入获取到的验证码" oninput="value=value.replace(/[^\d]/g,'')"/>
+                                    <span id="check" class="input-group-btn">
+                                            <button id="btn-code" class="layui-btn layui-btn-primary" type="button">获取验证码</button>
+                                        </span>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label>新密码</label>
+                                <input id="input-new-password" type="password"
+                                       class="form-control input-default"
+                                       placeholder="输入新密码"/>
+                            </div>
+                            <button id="btn-reset" type="button" class="btn btn-primary btn-flat m-b-15">重置密码</button>
+                            <div class="register-link text-center">
+                                <p>返回 <a href="login.html">登录</a></p>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+<script src="./layui/layui.js"></script>
+<script>
+    layui.use(['layer', 'form', 'jquery'], function () {
+        let layer = layui.layer, form = layui.form, $ = layui.$;
+
+        let InterValObj; //timer变量，控制时间
+        let count = 60; //间隔函数，1秒执行
+        let curCount;//当前剩余秒数
+        //获取验证码
+        $('#btn-code').click(function () {
+            //初始化提示区域
+            $('#empty').removeClass().html('');
+            let username = $('#username').val();
+            let email = $('#email').val();
+            //学号和邮箱不能为空
+            if (username.length === 0) {
+                layer.msg('请输入学号');
+                return;
+            }
+            if (email.length === 0) {
+                layer.msg('请输入邮箱');
+                return;
+            }
+            //向后台发出请求
+            $.ajax({
+                url: "/reset/vl-email",
+                type: "get",
+                data: {
+                    username: username,
+                    email: email
+                },
+                success: function (data) {
+                    if (data.code === "000") {
+                        alert('请求失败！请重新试一次');
+                        return;
+                    }
+                    if (data.code === "203" || data.code === "202") {
+                        //回调的状态码为203或202，则用户不存在或邮箱错误
+                        $('#empty').attr('class', 'alert alert-danger').html("学号或邮箱错误，请重新输入！");
+                        return;
+                    }
+                    if (data.code === "201") {//验证成功
+                        layer.msg("邮件发送成功");
+                        //设置button效果，开始计时
+                        curCount = count;
+                        $("#btn-code").addClass('layui-btn-disabled')
+                            .attr("disabled", "disabled")
+                            .html(curCount + "秒后重新获取");
+                        //启动计时器，1秒执行一次
+                        InterValObj = window.setInterval(SetRemainTime, 1000);
+                        return;
+                    }
+                    alert("出现未知错误！");
+                },
+                error: function (e, xhr) {
+                    alert("请求错误！错误原因为： " + xhr.status + " " + xhr.statusText);
+                },
+                complete: function () {
+                    //验证码框失去焦点
+                    $('#input-code').blur(function () {
+
+                        let checkCode = $('#input-code').val();
+                        if (checkCode.length === 0 || checkCode.length < 6) {
+                            return;
+                        }
+                        //将验证码发到后台
+                        $.ajax({
+                            url: "/reset/vl-code",
+                            type: "get",
+                            data: {
+                                checkCode: checkCode
+                            },
+                            success: function (res) {
+                                if (res.code === '201') {
+                                    $('#empty').attr('class', 'alert alert-info').html("验证码输入正确！");
+                                }
+                                if (res.code === '202') {
+                                    $('#empty').attr('class', 'alert alert-danger').html("验证码错误！");
+                                }
+                            },
+                            error: function (xhr) {
+                                alert("验证码请求错误！错误原因为： " + xhr.status + " " + xhr.statusText);
+                            }
+                        });
+
+                    });
+                }
+
+            });
+        });
+        //比对验证码，重新设置密码
+        $('#btn-reset').click(function () {
+            let username = $('#username').val();
+            let email = $('#email').val();
+            let checkCode = $('#input-code').val();
+            let newPassword = $('#input-new-password').val();
+            //判断验证码和密码输入不为空
+            if (username.length === 0) {
+                layer.msg('请输入学号');
+                return;
+            }
+            if (email.length === 0) {
+                layer.msg('请输入邮箱');
+                return;
+            }
+            if (checkCode.length === 0) {
+                layer.msg('请输入验证码');
+                return;
+            }
+            if (newPassword.length === 0) {
+                layer.msg('请输入密码');
+                return;
+            }
+            //发送验证码和密码到后台
+            $.ajax({
+                url: "/reset/up-pwd",
+                type: "post",
+                data: {
+                    username: username,
+                    checkCode: checkCode,
+                    newPassword: newPassword
+                },
+                success: function (data) {
+                    //验证码比对成功
+                    if (data.code === "201") {
+                        if (data.data === "更改密码成功") {
+                            //更新密码成功
+                            layer.msg("密码修改成功！即将重新登录", {time: 2000});
+                            setTimeout(function () {
+                                window.location.href = "login.html";
+                            }, 3000);
+                            return;
+                        } else if (data.data === "更改密码出现异常") {
+                            //更新密码失败
+                            layer.msg("密码相同无需修改!", {time: 2000});
+                            setTimeout(function () {
+                                window.location.href = "login.html";
+                            }, 3000);
+                            return;
+                        }
+                    }
+                    if (data.code === "202") {
+                        //验证码比对错误
+                        layer.msg("<em style='color:black'>" + "验证码错误！</em>", {icon: 5});
+                        return;
+                    }
+                    if (data.code === "000") {
+                        alert("请求失败！请重新试一次");
+                        return;
+                    }
+                    alert("服务器返回未知错误！");
+                },
+                error: function (xhr) {
+                    alert("验证码请求错误！错误原因为： " + xhr.status + " " + xhr.statusText);
+                }
+            });
+
+        });
+
+        //timer处理函数
+        function SetRemainTime() {
+            if (curCount === 0) {
+                window.clearInterval(InterValObj);//停止计时器
+                $("#btn-code").attr('class', 'layui-btn layui-btn-primary')
+                    .removeAttr("disabled")
+                    .html("重新发送验证码")
+            } else {
+                curCount--;
+                $("#btn-code").html(curCount + "秒后重新获取");
+            }
+        };
+    });
+
+
+</script>
+</html>

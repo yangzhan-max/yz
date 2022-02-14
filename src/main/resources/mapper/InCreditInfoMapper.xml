@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.graduation.chen.stuems.dao.InCreditInfoMapper">
+    <resultMap id="BaseResultMap" type="com.graduation.chen.stuems.entity.InCreditInfo">
+        <id column="in_id" jdbcType="INTEGER" property="inId"/>
+        <result column="student_id" jdbcType="VARCHAR" property="studentId"/>
+        <result column="audit_statue" jdbcType="VARCHAR" property="auditStatue"/>
+        <result column="in_credit_type" jdbcType="CHAR" property="inCreditType"/>
+        <result column="in_credit_name" jdbcType="VARCHAR" property="inCreditName"/>
+        <result column="in_credit_prove" jdbcType="VARCHAR" property="inCreditProve"/>
+        <result column="in_credit_reason" jdbcType="VARCHAR" property="inCreditReason"/>
+        <result column="in_credit_score" jdbcType="DECIMAL" property="inCreditScore"/>
+        <result column="request_time" jdbcType="TIMESTAMP" property="requestTime"/>
+        <result column="audit_time" jdbcType="TIMESTAMP" property="auditTime"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        in_id, student_id, audit_statue, in_credit_type, in_credit_name, in_credit_prove,
+    in_credit_reason, in_credit_score, request_time, audit_time
+    </sql>
+
+
+    <select id="listByStudentIdInCredit" parameterType="java.lang.String" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from in_credit_info
+        where student_id = #{studentId,jdbcType=VARCHAR}
+    </select>
+
+    <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from in_credit_info
+        where in_id = #{inId,jdbcType=INTEGER}
+    </select>
+    <select id="getAllInCredit" parameterType="java.lang.String" resultType="java.util.Map">
+        select in_credit_type, in_credit_score,audit_statue
+        from in_credit_info
+        where student_id = #{studentId,jdbcType=VARCHAR}
+    </select>
+
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+        delete
+        from in_credit_info
+        where in_id = #{inId,jdbcType=INTEGER}
+    </delete>
+    <insert id="insert" parameterType="com.graduation.chen.stuems.entity.InCreditInfo">
+        insert into in_credit_info (in_id, student_id, audit_statue,
+                                    in_credit_type, in_credit_name, in_credit_prove,
+                                    in_credit_reason, in_credit_score, request_time,
+                                    audit_time)
+        values (#{inId,jdbcType=INTEGER}, #{studentId,jdbcType=VARCHAR}, #{auditStatue,jdbcType=VARCHAR},
+                #{inCreditType,jdbcType=CHAR}, #{inCreditName,jdbcType=VARCHAR}, #{inCreditProve,jdbcType=VARCHAR},
+                #{inCreditReason,jdbcType=VARCHAR}, #{inCreditScore,jdbcType=DECIMAL},
+                #{requestTime,jdbcType=TIMESTAMP},
+                #{auditTime,jdbcType=TIMESTAMP})
+    </insert>
+
+    <insert id="insertSelectiveInCredit" parameterType="com.graduation.chen.stuems.model.query.InnovationCreditsInsert">
+        insert into in_credit_info
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+
+            <if test="studentId != null">
+                student_id,
+            </if>
+            <if test="type != null">
+                in_credit_type,
+            </if>
+            <if test="name != null">
+                in_credit_name,
+            </if>
+            <if test="fileName != null">
+                in_credit_prove,
+            </if>
+            <if test="reason != null">
+                in_credit_reason,
+            </if>
+            <if test="requestTime != null">
+                request_time,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+
+            <if test="studentId != null">
+                #{studentId,jdbcType=VARCHAR},
+            </if>
+            <if test="type != null">
+                #{type,jdbcType=CHAR},
+            </if>
+            <if test="name != null">
+                #{name,jdbcType=VARCHAR},
+            </if>
+            <if test="fileName != null">
+                #{fileName,jdbcType=VARCHAR},
+            </if>
+            <if test="reason != null">
+                #{reason,jdbcType=VARCHAR},
+            </if>
+            <if test="requestTime != null">
+                #{requestTime,jdbcType=TIMESTAMP},
+            </if>
+
+        </trim>
+    </insert>
+
+    <update id="updateByPrimaryKeySelective" parameterType="com.graduation.chen.stuems.entity.InCreditInfo">
+        update in_credit_info
+        <set>
+            <if test="studentId != null">
+                student_id = #{studentId,jdbcType=VARCHAR},
+            </if>
+            <if test="auditStatue != null">
+                audit_statue = #{auditStatue,jdbcType=VARCHAR},
+            </if>
+            <if test="inCreditType != null">
+                in_credit_type = #{inCreditType,jdbcType=CHAR},
+            </if>
+            <if test="inCreditName != null">
+                in_credit_name = #{inCreditName,jdbcType=VARCHAR},
+            </if>
+            <if test="inCreditProve != null">
+                in_credit_prove = #{inCreditProve,jdbcType=VARCHAR},
+            </if>
+            <if test="inCreditReason != null">
+                in_credit_reason = #{inCreditReason,jdbcType=VARCHAR},
+            </if>
+            <if test="inCreditScore != null">
+                in_credit_score = #{inCreditScore,jdbcType=DECIMAL},
+            </if>
+            <if test="requestTime != null">
+                request_time = #{requestTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="auditTime != null">
+                audit_time = #{auditTime,jdbcType=TIMESTAMP},
+            </if>
+        </set>
+        where in_id = #{inId,jdbcType=INTEGER}
+    </update>
+
+    <update id="updateByPrimaryKey" parameterType="com.graduation.chen.stuems.entity.InCreditInfo">
+        update in_credit_info
+        set student_id       = #{studentId,jdbcType=VARCHAR},
+            audit_statue     = #{auditStatue,jdbcType=VARCHAR},
+            in_credit_type   = #{inCreditType,jdbcType=CHAR},
+            in_credit_name   = #{inCreditName,jdbcType=VARCHAR},
+            in_credit_prove  = #{inCreditProve,jdbcType=VARCHAR},
+            in_credit_reason = #{inCreditReason,jdbcType=VARCHAR},
+            in_credit_score  = #{inCreditScore,jdbcType=DECIMAL},
+            request_time     = #{requestTime,jdbcType=TIMESTAMP},
+            audit_time       = #{auditTime,jdbcType=TIMESTAMP}
+        where in_id = #{inId,jdbcType=INTEGER}
+    </update>
+</mapper>

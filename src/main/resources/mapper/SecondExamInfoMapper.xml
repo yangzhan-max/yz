@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.graduation.chen.stuems.dao.SecondExamInfoMapper">
+    <resultMap id="BaseResultMap" type="com.graduation.chen.stuems.entity.SecondExamInfo">
+        <id column="id" jdbcType="INTEGER" property="id"/>
+        <result column="statue" jdbcType="VARCHAR" property="statue"/>
+        <result column="student_id" jdbcType="VARCHAR" property="studentId"/>
+        <result column="course_id" jdbcType="VARCHAR" property="courseId"/>
+        <result column="exam_second_time" jdbcType="DATE" property="examSecondTime"/>
+        <result column="exam_second_place" jdbcType="VARCHAR" property="examSecondPlace"/>
+        <result column="exam_second_section" jdbcType="INTEGER" property="examSecondSection"/>
+        <result column="exam_second_Invigilator" jdbcType="VARCHAR" property="examSecondInvigilator"/>
+        <result column="exam_second_type" jdbcType="VARCHAR" property="examSecondType"/>
+    </resultMap>
+    <sql id="Base_Column_List">
+    id, statue, student_id, course_id, exam_second_time, exam_second_place, exam_second_section, 
+    exam_second_Invigilator, exam_second_type
+  </sql>
+
+
+    <resultMap id="SecondExamResultMap" type="com.graduation.chen.stuems.model.dto.SecondExamDTO">
+
+        <result column="statue" jdbcType="VARCHAR" property="statue"/>
+        <result column="exam_second_time" jdbcType="DATE" property="examSecondTime"/>
+        <result column="exam_second_place" jdbcType="VARCHAR" property="examSecondPlace"/>
+        <result column="exam_second_section" jdbcType="INTEGER" property="examSecondSection"/>
+        <result column="exam_second_Invigilator" jdbcType="VARCHAR" property="examSecondInvigilator"/>
+        <result column="exam_second_type" jdbcType="VARCHAR" property="examSecondType"/>
+        <result column="course_name" jdbcType="VARCHAR" property="courseName"/>
+        <result column="course_type" jdbcType="VARCHAR" property="courseType"/>
+    </resultMap>
+
+    <select id="listAllByQuery" parameterType="com.graduation.chen.stuems.model.query.SchoolTermQuery"
+            resultMap="SecondExamResultMap">
+        select *
+        from view_second_exam
+        where student_id = #{schoolTermQuery.studentId,jdbcType=INTEGER} AND
+              course_term= #{schoolTermQuery.courseTerm,jdbcType=INTEGER} and
+              course_year= #{schoolTermQuery.courseYear,jdbcType=VARCHAR}
+    </select>
+
+    <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from exam_second_info
+        where id = #{id,jdbcType=INTEGER}
+    </select>
+
+
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from exam_second_info
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+    <insert id="insert" parameterType="com.graduation.chen.stuems.entity.SecondExamInfo">
+    insert into exam_second_info (id, statue, student_id, 
+      course_id, exam_second_time, exam_second_place, 
+      exam_second_section, exam_second_Invigilator, 
+      exam_second_type)
+    values (#{id,jdbcType=INTEGER}, #{statue,jdbcType=VARCHAR}, #{studentId,jdbcType=VARCHAR}, 
+      #{courseId,jdbcType=VARCHAR}, #{examSecondTime,jdbcType=DATE}, #{examSecondPlace,jdbcType=VARCHAR}, 
+      #{examSecondSection,jdbcType=INTEGER}, #{examSecondInvigilator,jdbcType=VARCHAR}, 
+      #{examSecondType,jdbcType=VARCHAR})
+  </insert>
+    <insert id="insertSelective" parameterType="com.graduation.chen.stuems.entity.SecondExamInfo">
+        insert into exam_second_info
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                id,
+            </if>
+            <if test="statue != null">
+                statue,
+            </if>
+            <if test="studentId != null">
+                student_id,
+            </if>
+            <if test="courseId != null">
+                course_id,
+            </if>
+            <if test="examSecondTime != null">
+                exam_second_time,
+            </if>
+            <if test="examSecondPlace != null">
+                exam_second_place,
+            </if>
+            <if test="examSecondSection != null">
+                exam_second_section,
+            </if>
+            <if test="examSecondInvigilator != null">
+                exam_second_Invigilator,
+            </if>
+            <if test="examSecondType != null">
+                exam_second_type,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                #{id,jdbcType=INTEGER},
+            </if>
+            <if test="statue != null">
+                #{statue,jdbcType=VARCHAR},
+            </if>
+            <if test="studentId != null">
+                #{studentId,jdbcType=VARCHAR},
+            </if>
+            <if test="courseId != null">
+                #{courseId,jdbcType=VARCHAR},
+            </if>
+            <if test="examSecondTime != null">
+                #{examSecondTime,jdbcType=DATE},
+            </if>
+            <if test="examSecondPlace != null">
+                #{examSecondPlace,jdbcType=VARCHAR},
+            </if>
+            <if test="examSecondSection != null">
+                #{examSecondSection,jdbcType=INTEGER},
+            </if>
+            <if test="examSecondInvigilator != null">
+                #{examSecondInvigilator,jdbcType=VARCHAR},
+            </if>
+            <if test="examSecondType != null">
+                #{examSecondType,jdbcType=VARCHAR},
+            </if>
+        </trim>
+    </insert>
+    <update id="updateByPrimaryKeySelective" parameterType="com.graduation.chen.stuems.entity.SecondExamInfo">
+        update exam_second_info
+        <set>
+            <if test="statue != null">
+                statue = #{statue,jdbcType=VARCHAR},
+            </if>
+            <if test="studentId != null">
+                student_id = #{studentId,jdbcType=VARCHAR},
+            </if>
+            <if test="courseId != null">
+                course_id = #{courseId,jdbcType=VARCHAR},
+            </if>
+            <if test="examSecondTime != null">
+                exam_second_time = #{examSecondTime,jdbcType=DATE},
+            </if>
+            <if test="examSecondPlace != null">
+                exam_second_place = #{examSecondPlace,jdbcType=VARCHAR},
+            </if>
+            <if test="examSecondSection != null">
+                exam_second_section = #{examSecondSection,jdbcType=INTEGER},
+            </if>
+            <if test="examSecondInvigilator != null">
+                exam_second_Invigilator = #{examSecondInvigilator,jdbcType=VARCHAR},
+            </if>
+            <if test="examSecondType != null">
+                exam_second_type = #{examSecondType,jdbcType=VARCHAR},
+            </if>
+        </set>
+        where id = #{id,jdbcType=INTEGER}
+    </update>
+    <update id="updateByPrimaryKey" parameterType="com.graduation.chen.stuems.entity.SecondExamInfo">
+    update exam_second_info
+    set statue = #{statue,jdbcType=VARCHAR},
+      student_id = #{studentId,jdbcType=VARCHAR},
+      course_id = #{courseId,jdbcType=VARCHAR},
+      exam_second_time = #{examSecondTime,jdbcType=DATE},
+      exam_second_place = #{examSecondPlace,jdbcType=VARCHAR},
+      exam_second_section = #{examSecondSection,jdbcType=INTEGER},
+      exam_second_Invigilator = #{examSecondInvigilator,jdbcType=VARCHAR},
+      exam_second_type = #{examSecondType,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>自主选课</title>
+    <!-- Standard -->
+    <link rel="shortcut icon" href="/logo/logo_title.png">
+    <!-- Styles -->
+    <link href="assets/fontAwesome/css/fontawesome-all.min.css" rel="stylesheet">
+    <link href="assets/css/lib/themify-icons.css" rel="stylesheet">
+    <link href="assets/css/lib/mmc-chat.css" rel="stylesheet"/>
+    <link href="assets/css/lib/sidebar.css" rel="stylesheet">
+    <link href="assets/css/lib/bootstrap.min.css" rel="stylesheet">
+    <link href="assets/css/lib/nixon.css" rel="stylesheet">
+    <link href="assets/lib/lobipanel/css/lobipanel.min.css" rel="stylesheet">
+    <link href="assets/css/style.css" rel="stylesheet">
+</head>
+<body>
+<!--left-->
+<div class="sidebar sidebar-hide-to-small sidebar-shrink sidebar-gestures">
+    <div class="nano">
+        <div class="nano-content">
+            <ul>
+                <li>
+                    <a href="index.html"><i class="ti-user"></i> 个人主页</a></li>
+                <li>
+                    <a class="sidebar-sub-toggle"><i class="ti-clipboard"></i> 报名申请 <span
+                            class="sidebar-collapse-icon ti-angle-down"></span></a>
+                    <ul>
+                        <li><a href="sign-levelExam.html">考级项目报名</a></li>
+                        <li><a href="sign-teaching.html">教学项目报名</a></li>
+                        <li><a href="sign-makeUp.html">补考确认</a></li>
+                        <li><a href="sign-finalMakeUp.html">毕业补考报名</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a class="sidebar-sub-toggle"><i class="ti-write"></i> 信息维护<span
+                            class="sidebar-collapse-icon ti-angle-down"></span></a>
+                    <ul>
+                        <li><a href="preserve-personalInfo.html">学生信息维护</a></li>
+                        <li><a href="preserve-cultivate.html">个人培养方案</a></li>
+                        <li><a href="preserve-credit.html">创新创业学分确认</a></li>
+                    </ul>
+                </li>
+                <li class="active open">
+                    <a class="sidebar-sub-toggle"><i class="ti-book"></i> 课程相关 <span
+                            class="sidebar-collapse-icon ti-angle-down"></span></a>
+                    <ul>
+                        <li><a href="course-query.html">学生课表查询</a></li>
+                        <li class="active"><a href="course-choose.html">自主选课</a></li>
+                        <li><a href="course-exam.html">考试安排</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a class="sidebar-sub-toggle"><i class="ti-search"></i> 信息查询<span
+                            class="sidebar-collapse-icon ti-angle-down"></span></a>
+                    <ul>
+                        <li><a href="info-warning.html">学籍预警查询</a></li>
+                        <li><a href="info-graduationAudit.html">毕业审核查询</a></li>
+                        <li><a href="info-score.html">学生成绩查询</a></li>
+                    </ul>
+                </li>
+                <li><a target="_blank" href="evaluate.html"><i class="ti-comment-alt"></i> 教学评价</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+<!-- header -->
+<div class="header">
+    <div class="pull-left">
+        <div class="logo login-logo">
+            <a href="index.html">
+                    <span class="label label-primary">
+                     教务管理系统
+                    </span>
+            </a>
+        </div>
+        <div class="hamburger sidebar-toggle">
+            <span class="ti-menu"></span>
+        </div>
+    </div>
+    <div class="pull-right p-r-15">
+        <ul>
+            <li class="header-icon dib"><img class="avatar-img"/> <span
+                    class="user-avatar">
+                <i class="ti-angle-down f-s-10"></i>
+            </span>
+                <div class="drop-down dropdown-profile">
+                    <div class="dropdown-content-body">
+                        <ul>
+                            <li><a href="reset.html"><i class="ti-lock"></i> <span>修改密码</span></a></li>
+                            <li><a href="new-email.html"><i class="ti-email"></i> <span>修改邮箱</span></a></li>
+                            <li><a href="javascript:void (0)" onclick="exit()"><i class="ti-power-off"></i>
+                                <span>安全退出</span></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>
+<!--content-->
+<div class="content-wrap">
+    <div class="main">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-8 p-0">
+                    <div class="page-header">
+                        <div class="page-title">
+                            <h1><strong>自主选课</strong></h1>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 p-0">
+                    <div class="page-header">
+                        <div class="page-title">
+                            <ol class="breadcrumb text-right">
+                                <li><a>课程相关</a></li>
+                                <li class="active">自主选课</li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="main-content">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="card alert">
+                            <div id="empty"></div>
+                            <div class="card-header">
+                                <h4>自主选课</h4>
+                            </div>
+                            <div class="card-body">
+                                <div class="input-group input-group-default">
+                                    <input id="input-search" type="text" placeholder="请输入课程名" name="Search"
+                                           class="form-control">
+                                    <span id="submit" class="input-group-btn">
+                                    <button class="btn btn-primary" type="submit">
+                                    <i class="ti-search"></i></button>
+                                  </span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card alert">
+                            <div class="card-header">
+                                <h4>课程列表</h4>
+                                <div class="card-header-right-icon">
+                                    <ul>
+                                        <li class="card-close" data-dismiss="alert"><i class="ti-close"></i></li>
+                                        <li class="card-option drop-menu"><i class="ti-settings" data-toggle="dropdown"
+                                                                             aria-haspopup="true" aria-expanded="false"
+                                                                             role="link"></i>
+                                            <ul class="card-option-dropdown dropdown-menu">
+                                                <li><a href="#"><i class="ti-loop"></i> Update data</a></li>
+                                                <li><a href="#"><i class="ti-menu-alt"></i> Detail log</a></li>
+                                                <li><a href="#"><i class="ti-pulse"></i> Statistics</a></li>
+                                                <li><a href="#"><i class="ti-power-off"></i> Clear ist</a></li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                <table class="table table-responsive table-striped " style="text-align: center">
+                                    <thead>
+                                    <tr>
+                                        <td>序号</td>
+                                        <td>课程名称</td>
+                                        <td>课程编号</td>
+                                        <td>上课教师</td>
+                                        <td>开课时间</td>
+                                        <td>课程学分</td>
+                                        <td>课程周期</td>
+                                        <td>课程类型</td>
+                                        <td>开课院系</td>
+                                        <td>操作</td>
+                                    </tr>
+                                    </thead>
+                                    <tbody id="content"></tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="assets/js/lib/jquery.min.js"></script>
+<script src="assets/js/lib/jquery.nanoscroller.min.js"></script>
+<script src="assets/js/lib/sidebar.js"></script>
+<script src="assets/js/lib/bootstrap.min.js"></script>
+<script src="assets/js/lib/mmc-common.js"></script>
+<script src="assets/js/lib/datamap/d3.min.js"></script>
+<script src="assets/js/lib/datamap/topojson.js"></script>
+<script src="assets/lib/lobipanel/js/lobipanel.js"></script>
+
+<script src="assets/js/scripts.js"></script>
+
+<script src="js/public.js"></script>
+<script>
+    $(document).ready(function courseInfoQuery() {
+        $.ajax({
+            url: '/course/course-choose',
+            type: "get",
+            data: {
+                courseBelong: sessionStorage.getItem('department')
+            },
+            success: function (res) {
+                let data = res.data;
+                if (data.length === 0) {
+                    $('#empty').addClass("alert alert-info").html('<strong>提示:</strong>（当前学年学期:' + timeJsonData().courseYear + '-' + timeJsonData().courseTerm + '）\n' +
+                        '<strong>选课列表暂未公布，请耐心等待！</strong>');
+                    return;
+                }
+                for (let i = 0; i < data.length; i++) {
+                    let html = "<tr>\n" +
+                        "<td scope=\"row\">" + (i + 1) + "</td>\n" +
+                        "<td>" + data[i].courseName + "</td>\n" +
+                        "<td>" + data[i].courseId + "</td>\n" +
+                        "<td>" + data[i].courseTeacher + "</td>\n" +
+                        "<td>" + data[i].courseBegin + "</td>\n" +
+                        "<td>" + data[i].courseCredit + "</td>\n" +
+                        "<td>" + data[i].courseCycle + "</td>\n" +
+                        "<td>" + data[i].courseType + "</td>\n" +
+                        "<td>" + data[i].courseBelong + "</td>\n" +
+                        "<td><a href=\"#\" onclick='selectCourse(" + data[i].courseId +
+                        ")'>\n" +
+                        "<span class=\"badge badge-primary select\">选择</span>\n" +
+                        "</a></td>\n" +
+                        "</tr>";
+                    $('#content').append(html);
+                }
+            }
+        });
+    });
+
+    $('#submit').click(function () {
+
+        let search = $('#input-search').val();
+        if (search.length === 0) {
+            layer.msg("请输入要搜索的课程名");
+            return;
+        }
+        $.ajax({
+            url: '/course/course-search',
+            type: "get",
+            data: {
+                courseBelong: sessionStorage.getItem('department'),
+                search: search
+            },
+            success: function (res) {
+                let data = res.data;
+                $('#empty').removeClass("alert alert-info").html("");
+                if (data.length === 0) {
+                    $('#empty').addClass("alert alert-info").html('<strong>提示:</strong>（当前学年学期:' + timeJsonData().courseYear + '-' + timeJsonData().courseTerm + '）\n' +
+                        '<strong>未找到该课程！</strong>');
+                    return;
+                }
+                let innerHTML = "";
+                for (let i = 0; i < data.length; i++) {
+                    let html = "<tr>\n" +
+                        "<td scope=\"row\">" + (i + 1) + "</td>\n" +
+                        "<td>" + data[i].courseName + "</td>\n" +
+                        "<td>" + data[i].courseId + "</td>\n" +
+                        "<td>" + data[i].courseTeacher + "</td>\n" +
+                        "<td>" + data[i].courseBegin + "</td>\n" +
+                        "<td>" + data[i].courseCredit + "</td>\n" +
+                        "<td>" + data[i].courseCycle + "</td>\n" +
+                        "<td>" + data[i].courseType + "</td>\n" +
+                        "<td>" + data[i].courseBelong + "</td>\n" +
+                        "<td><a href=\"#\" onclick='selectCourse(" + data[i].courseId +
+                        ")'>\n" +
+                        "<span class=\"badge badge-primary select\">选择</span>\n" +
+                        "</a></td>\n" +
+                        "</tr>";
+                    innerHTML += html;
+                }
+                $('#content').html(innerHTML);
+            }
+        });
+
+    });
+
+    function selectCourse(courseId) {
+
+        layer.confirm('确定选择该课程？', {
+            btn: ['确定', '取消'] //按钮
+        }, function () {
+            $.ajax({
+                url: '/course/course-select',
+                type: "post",
+                data: JSON.stringify({
+                    "courseId": courseId,
+                    "courseYear": timeJsonData().courseYear,
+                    "courseTerm": timeJsonData().courseTerm,
+                }),
+                contentType: "application/json;charset=UTF-8",
+                success: function (res) {
+                    if (res.code === "000") {
+                        layer.msg("你已经选过该课程！", {time: 2000});
+                    } else if (res.code === "001") {
+                        layer.msg("选课成功！");
+                    }
+
+                }
+            });
+        }, function () {
+
+        });
+
+    };
+</script>
+</body>
+</html>

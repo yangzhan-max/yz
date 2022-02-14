@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>成绩查询</title>
+    <!-- Standard -->
+    <link rel="shortcut icon" href="/logo/logo_title.png">
+    <!-- Styles -->
+    <link href="assets/fontAwesome/css/fontawesome-all.min.css" rel="stylesheet">
+    <link href="assets/css/lib/themify-icons.css" rel="stylesheet">
+    <link href="assets/css/lib/mmc-chat.css" rel="stylesheet"/>
+    <link href="assets/css/lib/sidebar.css" rel="stylesheet">
+    <link href="assets/css/lib/bootstrap.min.css" rel="stylesheet">
+    <link href="assets/css/lib/nixon.css" rel="stylesheet">
+    <link href="assets/lib/lobipanel/css/lobipanel.min.css" rel="stylesheet">
+    <link href="assets/css/style.css" rel="stylesheet">
+</head>
+<body>
+<!--left-->
+<div class="sidebar sidebar-hide-to-small sidebar-shrink sidebar-gestures">
+    <div class="nano">
+        <div class="nano-content">
+            <ul>
+                <li>
+                    <a href="index.html"><i class="ti-user"></i> 个人主页</a></li>
+                <li>
+                    <a class="sidebar-sub-toggle"><i class="ti-clipboard"></i> 报名申请 <span
+                            class="sidebar-collapse-icon ti-angle-down"></span></a>
+                    <ul>
+                        <li><a href="sign-levelExam.html">考级项目报名</a></li>
+                        <li><a href="sign-teaching.html">教学项目报名</a></li>
+                        <li><a href="sign-makeUp.html">补考确认</a></li>
+                        <li><a href="sign-finalMakeUp.html">毕业补考报名</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a class="sidebar-sub-toggle"><i class="ti-write"></i> 信息维护<span
+                            class="sidebar-collapse-icon ti-angle-down"></span></a>
+                    <ul>
+                        <li><a href="preserve-personalInfo.html">学生信息维护</a></li>
+                        <li><a href="preserve-cultivate.html">个人培养方案</a></li>
+                        <li><a href="preserve-credit.html">创新创业学分确认</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a class="sidebar-sub-toggle"><i class="ti-book"></i> 课程相关 <span
+                            class="sidebar-collapse-icon ti-angle-down"></span></a>
+                    <ul>
+                        <li><a href="course-query.html">学生课表查询</a></li>
+                        <li><a href="course-choose.html">自主选课</a></li>
+                        <li><a href="course-exam.html">考试安排</a></li>
+                    </ul>
+                </li>
+                <li class="active open">
+                    <a class="sidebar-sub-toggle"><i class="ti-search"></i> 信息查询<span
+                            class="sidebar-collapse-icon ti-angle-down"></span></a>
+                    <ul>
+                        <li><a href="info-warning.html">学籍预警查询</a></li>
+                        <li><a href="info-graduationAudit.html">毕业审核查询</a></li>
+                        <li class="active"><a href="info-score.html">学生成绩查询</a></li>
+
+                    </ul>
+                </li>
+                <li><a target="_blank" href="evaluate.html"><i class="ti-comment-alt"></i> 教学评价</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+<!-- header -->
+<div class="header">
+    <div class="pull-left">
+        <div class="logo login-logo">
+            <a href="index.html">
+                    <span class=" label label-primary">
+                     教务管理系统
+                    </span>
+            </a>
+        </div>
+        <div class="hamburger sidebar-toggle">
+            <span class="ti-menu"></span>
+        </div>
+    </div>
+    <div class="pull-right p-r-15">
+        <ul>
+            <li class="header-icon dib"><img class="avatar-img"/> <span
+                    class="user-avatar"><i class="ti-angle-down f-s-10"></i></span>
+                <div class="drop-down dropdown-profile">
+                    <div class="dropdown-content-body">
+                        <ul>
+                            <li><a href="reset.html"><i class="ti-lock"></i> <span>修改密码</span></a></li><li><a href="new-email.html"><i class="ti-email"></i> <span>修改邮箱</span></a></li>
+                            <li><a href="javascript:void (0)" onclick="exit()"><i class="ti-power-off"></i>
+                                <span>安全退出</span></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>
+<!--content-->
+<div class="content-wrap">
+    <div class="main">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-8 p-0">
+                    <div class="page-header">
+                        <div class="page-title">
+                            <h1><strong>成绩查询</strong></h1>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 p-0">
+                    <div class="page-header">
+                        <div class="page-title">
+                            <ol class="breadcrumb text-right">
+                                <li><a>信息查询</a></li>
+                                <li class="active">成绩查询</li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="main-content">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="card alert">
+                            <div class="card-header">
+                                <div id="empty"></div>
+                                <h4>成绩查询</h4>
+                            </div>
+                            <div class="card-body">
+                                <div class="form-group col-lg-6">
+                                    <label class="control-label">学年</label>
+                                    <div id="school-year">
+                                        <select class="form-control">
+                                            <option>2019-2020</option>
+                                            <option>2018-2019</option>
+                                            <option>2017-2018</option>
+                                            <option>2016-2017</option>
+                                            <option>2015-2016</option>
+                                            <option>2014-2015</option>
+                                            <option>2013-2014</option>
+                                            <option>2012-2013</option>
+                                            <option>2011-2012</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="form-group col-lg-6">
+                                    <label class="control-label">学期</label>
+                                    <div id="school-term">
+                                        <select class="form-control">
+                                            <option>1</option>
+                                            <option>2</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <button type="button" id="search" class="btn btn-primary m-r-15 m-b-10"
+                                        style="float: right;">查询
+                                    <span class="ti-search"></span>
+                                </button>
+                                <table class="table table-responsive table-striped " style="text-align: center">
+                                    <thead>
+                                    <tr>
+                                        <th width="10%">课程编号</th>
+                                        <th width="10%">课程名</th>
+                                        <th width="10%">学年</th>
+                                        <th width="10%">学期</th>
+                                        <th width="10%">成绩</th>
+                                        <th width="10%">补考</th>
+                                        <th width="10%">终极补考</th>
+                                        <th width="10%">课程性质</th>
+                                        <th width="10%">开课系别</th>
+                                        <th width="10%">课程学分</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody id="exam-score"></tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="assets/js/lib/jquery.min.js"></script>
+<script src="assets/js/lib/jquery.nanoscroller.min.js"></script>
+<script src="assets/js/lib/sidebar.js"></script>
+<script src="assets/js/lib/bootstrap.min.js"></script>
+<script src="assets/js/lib/mmc-common.js"></script>
+<script src="assets/js/lib/datamap/d3.min.js"></script>
+<script src="assets/js/lib/datamap/topojson.js"></script>
+<script src="assets/lib/lobipanel/js/lobipanel.js"></script>
+<script src="assets/js/scripts.js"></script>
+
+<script src="js/public.js"></script>
+<script>
+    $(document).ready(function () {
+        //课程成绩获取
+        function CourseScoreAjax() {
+            let JsonData = {
+                "courseYear": $('#school-year option:selected').val(),
+                "courseTerm": $('#school-term option:selected').val()
+            };
+            $.ajax({
+                url: '/search/show-score',
+                type: 'post',
+                data: JSON.stringify(JsonData),
+                dataType: 'json',
+                contentType:
+                    'application/json;charset=UTF-8',
+                success:
+                    function (result) {
+                        //初始化提示栏
+                        $('#empty').removeClass().html("");
+                        let data = result.data;
+                        //判断是否有成绩
+                        if (data.length === 0) {
+                            $('#empty').addClass("alert alert-info").html('<strong>提示:</strong>（当前学年学期:' +
+                                JsonData.courseYear + '-' + JsonData.courseTerm + '）\n' +
+                                '<strong>考试成绩未公布，请联系管理员！</strong>');
+                        }
+                        let innerHTML = "";
+                        //循环数据里的json数组
+                        for (let i = 0; i < data.length; i++) {
+                            let html = " <tr>\n" +
+                                "<td>" + data[i].courseId + "</td>\n" +
+                                "<td>" + data[i].courseName + "</td>\n" +
+                                "<td>" + data[i].courseYear + "</td>\n" +
+                                "<td>" + data[i].courseTerm + "</td>\n" +
+                                "<td>" + data[i].courseScore + "</td>\n" +
+                                "<td>" + data[i].courseScoreSecond + "</td>\n" +
+                                "<td>" + data[i].courseScoreFinal + "</td>\n" +
+                                "<td>" + data[i].courseType + "</td>\n" +
+                                "<td>" + data[i].courseBelong + "</td>\n" +
+                                "<td>" + data[i].courseCredit + "</td>\n" +
+                                "</tr>";
+                            innerHTML = innerHTML + html;
+                        }
+                        $('#exam-score').html(innerHTML);
+                    }
+            });
+        }
+
+        CourseScoreAjax();
+        $('#search').on("click", function () {
+            CourseScoreAjax();
+        })
+    })
+</script>
+</body>
+</html>

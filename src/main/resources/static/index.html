@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>首页</title>
+    <!-- Standard -->
+    <link rel="shortcut icon" href="/logo/logo_title.png">
+    <!-- Styles -->
+    <link href="assets/fontAwesome/css/fontawesome-all.min.css" rel="stylesheet">
+    <link href="assets/css/lib/themify-icons.css" rel="stylesheet">
+    <link href="assets/css/lib/mmc-chat.css" rel="stylesheet"/>
+    <link href="assets/css/lib/sidebar.css" rel="stylesheet">
+    <link href="assets/css/lib/bootstrap.min.css" rel="stylesheet">
+    <link href="assets/css/lib/nixon.css" rel="stylesheet">
+    <link href="assets/lib/lobipanel/css/lobipanel.min.css" rel="stylesheet">
+    <link href="assets/css/style.css" rel="stylesheet">
+</head>
+
+<!--上传头像，修改邮箱,下载文件-->
+<body>
+<!--left-->
+<div class="sidebar sidebar-hide-to-small sidebar-shrink sidebar-gestures">
+    <div class="nano">
+        <div class="nano-content">
+            <ul>
+                <li class="active">
+                    <a href="index.html">
+                        <i class="ti-user"></i>
+                        个人主页
+                    </a>
+                </li>
+                <li>
+                    <a class="sidebar-sub-toggle"><i class="ti-clipboard"></i> 报名申请 <span
+                            class="sidebar-collapse-icon ti-angle-down"></span></a>
+                    <ul>
+                        <li><a href="sign-levelExam.html">考级项目报名</a></li>
+                        <li><a href="sign-teaching.html">教学项目报名</a></li>
+                        <li><a href="sign-makeUp.html">补考确认</a></li>
+                        <li><a href="sign-finalMakeUp.html">毕业补考报名</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a class="sidebar-sub-toggle"><i class="ti-write"></i> 信息维护<span
+                            class="sidebar-collapse-icon ti-angle-down"></span></a>
+                    <ul>
+                        <li><a href="preserve-personalInfo.html">学生信息维护</a></li>
+                        <li><a href="preserve-cultivate.html">个人培养方案</a></li>
+                        <li><a href="preserve-credit.html">创新创业学分确认</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a class="sidebar-sub-toggle"><i class="ti-book"></i> 课程相关<span
+                            class="sidebar-collapse-icon ti-angle-down"></span></a>
+                    <ul>
+                        <li><a href="course-query.html">学生课表查询</a></li>
+                        <li><a href="course-choose.html">自主选课</a></li>
+                        <li><a href="course-exam.html">考试安排</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a class="sidebar-sub-toggle"><i class="ti-search"></i> 信息查询<span
+                            class="sidebar-collapse-icon ti-angle-down"></span></a>
+                    <ul>
+                        <li><a href="info-warning.html">学籍预警查询</a></li>
+                        <li><a href="info-graduationAudit.html">毕业审核查询</a></li>
+
+                        <li><a href="info-score.html">成绩查询</a></li>
+
+
+                    </ul>
+                </li>
+                <li><a target="_blank" href="evaluate.html"><i class="ti-comment-alt"></i> 教学评价</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+<!-- header -->
+<div class="header">
+    <div class="pull-left">
+        <div class="logo login-logo">
+            <a href="index.html">
+                    <span class="label label-primary">
+                     教务管理系统
+                    </span>
+            </a>
+        </div>
+        <div class="hamburger sidebar-toggle">
+            <span class="ti-menu"></span>
+        </div>
+    </div>
+    <div class="pull-right p-r-15">
+        <ul>
+            <li class="header-icon dib">
+                <img class="avatar-img" src="" alt=""/>
+                <span class="user-avatar"><i class="ti-angle-down f-s-10"></i></span>
+                <div class="drop-down dropdown-profile">
+                    <div class="dropdown-content-body">
+                        <ul>
+                            <li><a href="reset.html"><i class="ti-lock"></i> <span>修改密码</span></a></li>
+                            <li><a href="new-email.html"><i class="ti-email"></i> <span>修改邮箱</span></a></li>
+                            <li><a href="javascript:void (0)" onclick="exit()"><i class="ti-power-off"></i>
+                                <span>安全退出</span></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>
+<!--content-->
+<div class="content-wrap">
+    <div class="main">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-8 p-0">
+                    <div class="page-header">
+                        <div class="page-title">
+                            <h1><strong>个人主页</strong></h1>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 p-0">
+                    <div class="page-header">
+                        <div class="page-title">
+                            <ol class="breadcrumb text-right">
+                                <li><a href="#">个人主页</a></li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="main-content">
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="card alert">
+                            <div class="card-header"></div>
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-lg-3">
+                                        <div class="user-photo m-b-30 img-circle">
+                                            <img id="user-img" class="img-rounded img-responsive" width="300px"
+                                                 height="300px"/>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-9">
+                                        <div id="user-name" class="user-profile-name"></div>
+                                        <div class="user-Location">
+                                            <i class="ti-location-pin"></i>
+                                            孝感
+                                        </div>
+                                        <div id="department" class="user-job-title">信息工程系</div>
+                                        <div class="user-send-message">
+                                            <input type="file" id="file">
+                                        </div>
+                                        <div class="user-send-message">
+                                            <button type="button" id="upload"
+                                                    class="btn btn-primary btn-flat btn-addon m-b-10 m-l-5">
+                                                <i class="ti-image"></i>开始上传
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="custom-tab user-profile-tab">
+                                    <ul class="nav nav-tabs" role="tablist">
+                                        <li role="presentation" class="active">
+                                            <a href="#1" aria-controls="1" role="tab"
+                                               data-toggle="tab">基本信息</a>
+                                        </li>
+                                        <li role="presentation">
+                                            <a href="#2" aria-controls="2" role="tab"
+                                               data-toggle="tab">身份信息</a>
+                                        </li>
+                                        <li role="presentation">
+                                            <a href="#3" aria-controls="3" role="tab"
+                                               data-toggle="tab">学籍信息</a>
+                                        </li>
+                                    </ul>
+                                    <div class="tab-content">
+                                        <div role="tabpanel" class="tab-pane active" id="1">
+                                            <div class="basic-information">
+                                                <div class="user-content">
+                                                    <span class="contact-title">用户名:</span>
+                                                    <span class="contact-all-info"></span>
+                                                </div>
+                                                <div class="password-content">
+                                                    <span class="contact-title">密码:</span>
+                                                    <span class="contact-all-info"></span>
+                                                </div>
+                                                <div class="email-content">
+                                                    <span class="contact-title">邮箱:</span>
+                                                    <span class="contact-all-info"></span>
+                                                </div>
+                                                <div class="phone-content">
+                                                    <span class="contact-title">联系电话:</span>
+                                                    <span class="contact-all-info"></span>
+                                                </div>
+                                                <div class="introduction-content">
+                                                    <span class="contact-title">简介:</span>
+                                                    <span>暂无</span>
+                                                </div>
+                                                <div class="individuality-content">
+                                                    <span class="contact-title">个性签名:</span>
+                                                    <span>
+                                                        <textarea rows="4.5" cols="6" class="form-control"
+                                                                  disabled></textarea>
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div role="tabpanel" class="tab-pane" id="2">
+                                            <div id="basic-info" class="basic-information">
+
+                                                <div class="introduction-content">
+                                                    <span class="contact-title">身份证号:</span>
+                                                    <span class="contact-all-info"></span>
+                                                </div>
+                                                <div class="introduction-content">
+                                                    <span class="contact-title">真实姓名:</span>
+                                                    <span class="contact-all-info"></span>
+                                                </div>
+                                                <div class="introduction-content">
+                                                    <span class="contact-title">性别:</span>
+                                                    <span class="contact-all-info"></span>
+                                                </div>
+                                                <div class="introduction-content">
+                                                    <span class="contact-title">籍贯:</span>
+                                                    <span class="contact-all-info"></span>
+                                                </div>
+                                                <div class="introduction-content">
+                                                    <span class="contact-title">出生日期:</span>
+                                                    <span class="contact-all-info"></span>
+                                                </div>
+                                                <div class="introduction-content">
+                                                    <span class="contact-title">国籍:</span>
+                                                    <span class="contact-all-info"></span>
+                                                </div>
+                                                <div class="introduction-content">
+                                                    <span class="contact-title">民族:</span>
+                                                    <span class="contact-all-info"></span>
+                                                </div>
+                                                <div class="introduction-content">
+                                                    <span class="contact-title">政治面貌:</span>
+                                                    <span class="contact-all-info"></span>
+                                                </div>
+                                                <div class="introduction-content">
+                                                    <span class="contact-title">证件类型:</span>
+                                                    <span class="contact-all-info"></span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div role="tabpanel" class="tab-pane" id="3">
+                                            <div class="basic-information">
+                                                <div class="introduction-content">
+                                                    <span class="contact-title">学号:</span>
+                                                    <span class="contact-all-info"></span>
+                                                </div>
+                                                <div class="introduction-content">
+                                                    <span class="contact-title">入学时间:</span>
+                                                    <span class="contact-all-info"></span>
+                                                </div>
+                                                <div class="introduction-content">
+                                                    <span class="contact-title">入学类型:</span>
+                                                    <span class="contact-all-info"></span>
+                                                </div>
+                                                <div class="introduction-content">
+                                                    <span class="contact-title">学制:</span>
+                                                    <span class="contact-all-info"></span>
+                                                </div>
+                                                <div class="introduction-content">
+                                                    <span class="contact-title">学院:</span>
+                                                    <span class="contact-all-info"></span>
+                                                </div>
+                                                <div class="introduction-content">
+                                                    <span class="contact-title">系别:</span>
+                                                    <span class="contact-all-info" id="user-department"></span>
+                                                </div>
+                                                <div class="introduction-content">
+                                                    <span class="contact-title">专业:</span>
+                                                    <span class="contact-all-info"></span>
+                                                </div>
+                                                <div class="introduction-content">
+                                                    <span class="contact-title">班级:</span>
+                                                    <span class="contact-all-info"></span>
+                                                </div>
+                                                <div class="introduction-content">
+                                                    <span class="contact-title">是否在读:</span>
+                                                    <span class="contact-all-info"></span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="card alert">
+                            <div class="card-header">
+                                <h4>课程表</h4>
+                            </div>
+                            <div class="card-body">
+                                <table class="table table-responsive table-striped " style="text-align: center">
+                                    <thead>
+                                    <tr>
+                                        <td>课程</td>
+                                        <td>地点</td>
+                                        <td>教师</td>
+                                        <td>星期</td>
+                                        <td>节次</td>
+                                        <td>周期</td>
+                                    </tr>
+                                    </thead>
+                                    <tbody id="course-info"></tbody>
+                                </table>
+                                <div style="text-align: right;">
+                                    <a href="course-query.html"><span class="badge badge-primary">更多...</span></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="card alert">
+                            <div class="card-header">
+                                <h4>通知</h4>
+                            </div>
+                            <div class="card-body">
+                                <table class="table table-responsive table-hover " style="text-align: center">
+                                    <thead>
+                                    <tr>
+                                        <td>编号</td>
+                                        <td>内容</td>
+                                        <td>时间</td>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <tr>
+                                        <td><span class="badge badge-primary">通知1</span></td>
+                                        <td><a href="#">无</a></td>
+                                        <td>2019-09-30</td>
+                                    </tr>
+                                    <tr>
+                                        <td><span class="badge badge-primary">通知2</span></td>
+                                        <td><a href="#">无</a></td>
+                                        <td>2019-09-30</td>
+                                    </tr>
+                                    <tr>
+                                        <td><span class="badge badge-primary">通知3</span></td>
+                                        <td><a href="#">无</a></td>
+                                        <td>2019-09-30</td>
+                                    </tr>
+                                    <tr>
+                                        <td><span class="badge badge-primary">通知4</span></td>
+                                        <td><a href="#">无</a></td>
+                                        <td>2019-09-30</td>
+                                    </tr>
+                                    <tr>
+                                        <td><span class="badge badge-primary">通知5</span></td>
+                                        <td><a href="#">无</a></td>
+                                        <td>2019-09-30</td>
+                                    </tr>
+                                    <tr>
+                                        <td><span class="badge badge-primary">通知6</span></td>
+                                        <td><a href="#">无</a></td>
+                                        <td>2019-09-30</td>
+                                    </tr>
+                                    <tr>
+                                        <td><span class="badge badge-primary">通知7</span></td>
+                                        <td><a href="#">无</a></td>
+                                        <td>2019-09-30</td>
+                                    </tr>
+                                    <tr>
+                                    </tbody>
+                                </table>
+                                <div style="text-align: right;">
+                                    <a href="#"><span class="badge badge-primary">更多...</span></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="card alert">
+                            <div class="card-header">
+                                <h4>课程成绩</h4>
+                            </div>
+                            <div class="card-body">
+                                <table class="table table-responsive table-striped " style="text-align: center">
+                                    <thead>
+                                    <tr>
+                                        <td>课程性质</td>
+                                        <td>学年</td>
+                                        <td>学期</td>
+                                        <td>课程名</td>
+                                        <td>成绩</td>
+                                    </tr>
+                                    </thead>
+                                    <tbody id="score-info"></tbody>
+                                </table>
+                                <div>
+                                    <a href="info-score.html"><span class="badge badge-primary">更多...</span></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script src="assets/js/lib/jquery.min.js"></script>
+<script src="assets/js/lib/jquery.nanoscroller.min.js"></script>
+<script src="assets/js/lib/sidebar.js"></script>
+<script src="assets/js/lib/bootstrap.min.js"></script>
+<script src="assets/js/lib/mmc-common.js"></script>
+<script src="assets/js/lib/datamap/d3.min.js"></script>
+<script src="assets/js/lib/datamap/topojson.js"></script>
+<script src="assets/lib/lobipanel/js/lobipanel.js"></script>
+<script src="assets/js/scripts.js"></script>
+<script>
+    $(document).ready(function () {
+        let storage = window.sessionStorage;
+        //个人所有信息获取
+        $.ajax({
+            url: '/view/show-all',
+            type: 'get',
+            success: function (result) {
+                //替换左右边头像
+                $('#user-name,.user-avatar').html(result.data.name);
+                $('#user-img,.avatar-img').attr("src", "/upload/headpic/" + result.data.headPic);
+                //用户信息集合
+                storage.setItem("user", result.data.username);
+                storage.setItem("headpic", result.data.headPic);
+                storage.setItem("name", result.data.name);
+                //创建js数组
+                let array = [];
+                //遍历json对象
+                for (let key in result.data) {
+                    if (key !== "headPic") {
+                        array.push(result.data[key]);
+                    }
+                }
+                //首先获取所有子元素个数
+                let length = $('.contact-all-info').length;
+                //参数判断
+                if (length !== array.length) {
+                    alert("参数不符合!");
+                    return;
+                }
+                //遍历索引
+                for (let i = 0; i < length; i++) {
+                    //根据当前索引找到当前子元素的属性值
+                    $('.contact-all-info').eq(i).text(array[i]);
+                }
+                //页面渲染后
+                sessionStorage.setItem('department', $('#user-department').text())
+            }
+        });
+        //课表信息获取
+        $.ajax({
+            url: '/view/show-course',
+            type: 'post',
+            data: JSON.stringify(timeJsonData()),
+            contentType: 'application/json;charset=UTF-8',
+            success:
+                function (result) {
+                    let data = result.data;
+                    //循环数据里的json数组
+                    for (let i = 0; i < data.length; i++) {
+                        let html = " <tr>\n" +
+                            "<td>" + data[i].courseName + "</td>\n" +
+                            "<td>" + data[i].coursePlace + "</td>\n" +
+                            "<td>" + data[i].courseTeacher + "</td>\n" +
+                            "<td>" + data[i].courseWeek + "</td>\n" +
+                            "<td>" + data[i].courseSection + "</td>\n" +
+                            "<td>" + data[i].courseCycle + "</td>\n" +
+                            "</tr>";
+                        $('#course-info').append(html);
+                    }
+                    //空白数
+                    for (let j = 1; j < 11 - data.length; j++) {
+                        let html = "<tr>\n" +
+                            "<td>&nbsp;</td>\n" +
+                            "<td>&nbsp;</td>\n" +
+                            "<td>&nbsp;</td>\n" +
+                            "<td>&nbsp;</td>\n" +
+                            "<td>&nbsp;</td>\n" +
+                            "<td>&nbsp;</td>\n" +
+                            +"</tr>";
+                        $('#course-info').append(html);
+                    }
+                }
+        });
+        //课程成绩获取
+        $.ajax({
+            url: '/view/show-score',
+            type: 'post',
+            data: JSON.stringify(timeJsonData()),
+            contentType:
+                'application/json;charset=UTF-8',
+            success:
+                function (result) {
+                    let data = result.data;
+                    //循环数据里的json数组
+                    for (let i = 0; i < data.length; i++) {
+                        let score = data[i].courseScore;
+                        if (data[i].courseScoreSecond > 0) {
+                            score = data[i].courseScoreSecond;
+                        }
+                        if (data[i].courseScoreFinal > 0) {
+                            score = data[i].courseScoreFinal;
+                        }
+                        let html = " <tr>\n" +
+                            "<td>" + result.data[i].courseType + "</td>\n" +
+                            "<td>" + result.data[i].courseYear + "</td>\n" +
+                            "<td>" + result.data[i].courseTerm + "</td>\n" +
+                            "<td>" + result.data[i].courseName + "</td>\n" +
+                            "<td>" + score + "</td>\n" +
+                            "</tr>";
+                        $('#score-info').append(html);
+                    }
+                    //空白数
+                    for (let j = 0; j < 7 - data.length; j++) {
+                        let html = "<tr>\n" +
+                            "<td>&nbsp;</td>\n" +
+                            "<td>&nbsp;</td>\n" +
+                            "<td>&nbsp;</td>\n" +
+                            "<td>&nbsp;</td>\n" +
+                            "<td>&nbsp;</td>\n" +
+                            +"</tr>";
+                        $('#score-info ').append(html);
+                    }
+                }
+        });
+        //头像上传
+        $('#upload').click(function () {
+            let file = $('#file').val();
+            if (file === "" || file === null) {
+                layer.msg('请选择要上传的图片');
+                return;
+            }
+            if (file.lastIndexOf('.') === -1) {//如果不存在"."
+                layer.alert("路径不正确!");
+                return;
+            }
+            let AllImgExt = ".jpg|.jpeg|.gif|.bmp|.png|";
+            let extName = file.substring(file.lastIndexOf(".")).toLowerCase();//（把路径中的所有字母全部转换为小写）
+            if (AllImgExt.indexOf(extName + "|") === -1) {
+                let errMsg = "该文件类型不允许上传。请上传 " + AllImgExt + " 类型的文件，当前文件类型为" + extName;
+                layer.alert(errMsg);
+                return;
+            }
+            let formData = new FormData();
+            formData.set("file", $('#file')[0].files[0]);
+            $.ajax({
+                url: '/view/upload-pic',
+                type: "POST",
+                data: formData,
+                dataType: "JSON",
+                //要想用jquery的ajax来提交FormData数据,
+                //则必须要把这两项设为false
+                processData: false,
+                contentType: false,
+                //这里是防表单重复提交,可以忽略
+                beforeSend: function (xhr) {
+                    $("#submit").attr("disabled", true);
+                },
+                complete: function (xhr, status) {
+                    $("#submit").attr("disabled", false);
+                }, success: function (res) {
+                    alert("图片上传成功！")
+                    window.location.reload();
+                }
+            })
+        });
+    });
+</script>
+<script src="js/public.js"></script>
+</body>
+</html>
